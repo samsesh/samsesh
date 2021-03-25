@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SamSesh</title>
+  <style>
+  body {
+  background-color: black;
+  
+  color: white;
+  padding: 10px;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 12px;
+}
+p {
+  margin: 0;
+}
+
+p > p {
+  display: inline;
+}
+p.command:before {
+  content: 'SamSesh@127.0.0.1:~$ ';
+}
+table {
+  width: 425px; 
+}
+.typed-cursor{
+  display: inline-block;
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+a
+	{
+	text-decoration: none;
+	color: #fff;
+	}
+
+  </style>
+  
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="console">
+    Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-66-generic x86_64) <br />
+  <br />
+ * Documentation:  <a href="https://help.ubuntu.com" >https://help.ubuntu.com</a> <br />
+ * Management:     <a href="https://landscape.canonical.com">https://landscape.canonical.com</a> <br /> 
+ * Support:        <a href="https://ubuntu.com/advantage">https://ubuntu.com/advantage</a> <br /> <br />
+
+  System information as of <p id=date></p>    
+	<script>document.getElementById("date").innerHTML =Date();</script><br /><br /> 
+
+    <table>
+    <tr>
+      <td>System load:</td>
+      <td>0.3</td>
+      <td>Processes:</td>
+      <td>90</td>
+      </tr>
+      <tr>
+      <td>Usage of /:</td>
+      <td>3.1% of 90.9GB</td>
+      <td>Users logged in:</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Memory usage: </td>
+        <td>17%</td>
+        <td>IP address for eth0:</td>
+        <td>127.0.0.1</td>
+      </tr>
+      <tr>
+        <td>Swap usage:</td>
+        <td>0%</td>
+      </tr>
+    </table>
+	<br /><br />
+
+8 packages can be updated. <br />
+0 updates are security updates. <br /> <br />
+To see these additional updates run: apt list --upgradable<br /> <br />
+
+
+    SamSesh@127.0.0.1:~$ 
+	<span id="AboutDevTypeText" class="typeing"></span><span class='typed-cursor'>_</span>
+
+	<script>
+	var data = [
+  {
+    AboutDevTypeText: "<span>cat info.txt<br/><br/>there`s no place like [her arm]<br/>maybe geek<br/><br/> follow me on social media <br/> instagram : init__0  | instagram : sam.sesh <br/> twitter : init__0 | twitter : https_localhost <br/> telegram : https_localhost <br/> clubhose : @sam.sesh <br/> linkedin : sam-sesh <br/> GitHub : samsesh <br/> email : samsesh@127oo1.ir </span><br/><br/><br/><span>SamSesh@127.0.0.1:~$</span>"
+  }
+];
+
+var allElements = document.getElementsByClassName("typeing");
+for (var j = 0; j < allElements.length; j++) {
+  var currentElementId = allElements[j].id;
+  var currentElementIdContent = data[0][currentElementId];
+  var element = document.getElementById(currentElementId);
+  var devTypeText = currentElementIdContent;
+
+  // type code
+  var i = 0, isTag, text;
+  (function type() {
+    text = devTypeText.slice(0, ++i);
+    if (text === devTypeText) return;
+    element.innerHTML = text + `<span class='blinker'>&#32;</span>`;
+    var char = text.slice(-1);
+    if (char === "<") isTag = true;
+    if (char === ">") isTag = false;
+    if (isTag) return type();
+    setTimeout(type, 60);
+  })();
+}
+
+	</script>
+  </div>
+</body>
+</html>
+
+  
