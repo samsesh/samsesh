@@ -6,4 +6,4 @@
  ![logo](./Logo/logoB.svg)
 
 ## [donate](https://github.com/samsesh/donate) 
-* [![Donation](https://img.shields.io/badge/PAYPAL-donate-blue.svg)](https://paypal.me/samsesh) | [![Donation](https://img.shields.io/badge/BITCOIN-donate-yellow.svg)](https://github.com/samsesh/donate) | [![Donation](https://img.shields.io/badge/IDPay-donate-blue.svg)](https://idpay.ir/samsesh) 
+* [![Donation](https://img.shields.io/badge/PAYPAL-donate-blue.svg)](https://paypal.me/samsesh) | [![Donation](https://img.shields.io/badge/BITCOIN-donate-yellow.svg)](https://en.cryptobadges.io/donate/BC1QF3NTHFRDKD7QJN4KP6YJDRRFSX5WHU39P9X5CP) | [![Donation](https://img.shields.io/badge/IDPay-donate-blue.svg)](https://idpay.ir/samsesh) 
