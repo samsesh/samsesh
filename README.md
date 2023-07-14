@@ -7,4 +7,4 @@
 > 127.0.0.1
 
 ## [donate](https://github.com/samsesh/donate) 
-* [![Donation](https://img.shields.io/badge/PAYPAL-donate-blue.svg)](https://paypal.me/samsesh) | [![Donation]((https://img.shields.io/badge/cryptocurrency-donate-yellow.svg))](https://nowpayments.io/donation/samsesh) | [![Donation](https://img.shields.io/badge/IDPay-donate-blue.svg)](https://idpay.ir/samsesh) 
+* [![Donation](https://img.shields.io/badge/PAYPAL-donate-blue.svg)](https://paypal.me/samsesh) | [![Donation](https://img.shields.io/badge/cryptocurrency-donate-yellow.svg)](https://nowpayments.io/donation/samsesh) | [![Donation](https://img.shields.io/badge/IDPay-donate-blue.svg)](https://idpay.ir/samsesh) 
