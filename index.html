@@ -104,6 +104,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
         {
           AboutDevTypeText: `
             <span>
+            cat info.txt<br/>
             127.0.0.1<br/>
             there's no place like ♡ нет никакого места как<br/>
             maybe geek<br/><br/>
@@ -156,16 +157,29 @@ __)(_|| | |__)(/__>| |o| |(/_|
           var command = input.previousSibling.nodeValue.trim();
           input.previousSibling.nodeValue = ''; // Clear input
 
+          var outputText = ''; // Store command output
+
           if (command === 'donate') {
             window.open('https://donate.samsesh.net', '_blank');
+            outputText = `Opening donation page...`;
           } else if (command === 'telegram') {
             window.open('https://t.me/sam_sesh', '_blank');
+            outputText = `Opening Telegram channel...`;
           } else if (command === 'info') {
             document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
           } else {
-            document.getElementById('AboutDevTypeText').innerHTML += `<br/>Command not found: ${command}`;
+            outputText = `Command not found: ${command}. Available commands: <br/> 
+              <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
+              <a href='https://t.me/sam_sesh' target='_blank'>telegram</a>, 
+              <a href='#' onclick="document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText; return false;">info</a>`;
           }
 
+          // Add output to the command line
+          var commandOutput = document.createElement('p');
+          commandOutput.className = 'command';
+          commandOutput.innerHTML = outputText;
+          document.querySelector('.console').appendChild(commandOutput);
+          
           // Re-add cursor
           setTimeout(() => {
             input.innerHTML = '_';
