@@ -88,6 +88,8 @@ __)(_|| | |__)(/__>| |o| |(/_|
       <tr>
         <td>Swap usage:</td>
         <td>6%</td>
+        <td>IP address for eth0:</td>
+        <td id="eth0-ip">Fetching...</td>
       </tr>
     </table>
     <br /><br />
@@ -100,6 +102,17 @@ __)(_|| | |__)(/__>| |o| |(/_|
     <span id="AboutDevTypeText" class="typeing"></span><span class='typed-cursor'>_</span>
 
     <script>
+      // Fetch the user's public IP address from ipify
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('eth0-ip').textContent = data.ip;
+        })
+        .catch(error => {
+          document.getElementById('eth0-ip').textContent = 'Unable to fetch IP';
+          console.error('Error fetching IP:', error);
+        });
+
       var data = [
         {
           AboutDevTypeText: `
@@ -167,6 +180,10 @@ __)(_|| | |__)(/__>| |o| |(/_|
             outputText = `Opening Telegram channel...`;
           } else if (command === 'info') {
             document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
+            // Reset the cursor to the command prompt
+            setTimeout(() => {
+              document.querySelector('.typed-cursor').innerHTML = '_';
+            }, 100); // Delay to allow the user to see the output
           } else {
             outputText = `Command not found: ${command}. Available commands: <br/> 
               <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
