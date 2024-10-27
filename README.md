@@ -18,8 +18,9 @@ If you’d like to support my projects, consider making a donation on one of the
 [![Reymit](https://img.shields.io/badge/Reymit-Donate-purple.svg)](https://reymit.ir/samsesh) |
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-blue.svg)](https://paypal.me/samsesh) |
 [![Crypto](https://img.shields.io/badge/Cryptocurrency-Donate-yellow.svg)](https://nowpayments.io/donation/samsesh) |
+[![Patreon](https://img.shields.io/badge/Patreon-Subscribe-red.svg)](https://www.patreon.com/SamSesh) |
 [![IDPay](https://img.shields.io/badge/IDPay-Donate-blue.svg)](https://idpay.ir/samsesh) |
-[![Patreon](https://img.shields.io/badge/Patreon-Subscribe-red.svg)](https://www.patreon.com/SamSesh)
+[![CoffeeTe](https://img.shields.io/badge/CoffeeTe-Donate-brown.svg)](https://www.coffeete.ir/SamSesh)
 
 ---
 
