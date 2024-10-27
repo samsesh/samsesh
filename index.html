@@ -167,16 +167,14 @@ __)(_|| | |__)(/__>| |o| |(/_|
           setTimeout(() => {
             document.querySelector('.typed-cursor').innerHTML = '|'; // Reset cursor
           }, 100); // Delay to allow the user to see the output
-        } else {
-          // Prevent the default behavior for typing in the input field
-          event.preventDefault();
-          // Append the key to the command text
+        } else if (event.key.length === 1) {
+          // Append the typed character to command text
           commandText.innerHTML += event.key;
         }
       });
 
       userInput.addEventListener('focus', function() {
-        commandText.innerHTML = ''; // Clear command text on focus
+        userInput.value = ''; // Clear input on focus
       });
 
       function handleCommand(command) {
@@ -189,6 +187,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
           outputText = `Opening Telegram channel...`;
         } else if (command === 'info') {
           document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
+          outputText = `Displaying information...`;
         } else {
           outputText = `Command not found: ${command}. Available commands: <br/> 
             <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
@@ -197,6 +196,12 @@ __)(_|| | |__)(/__>| |o| |(/_|
         }
         return outputText;
       }
+
+      // Automatically run 'info' command on page load
+      window.onload = function() {
+        userInput.focus();
+        handleCommand('info'); // Automatically run the info command
+      };
     </script>
   </div>
 </body>
