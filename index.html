@@ -48,18 +48,12 @@ __)(_|| | |__)(/__>| |o| |(/_|
       text-decoration: none;
       color: #fff;
     }
-    .console {
-      max-height: 400px; /* Adjust as necessary */
-      overflow-y: auto;
-      border: 1px solid white;
-      padding: 10px;
-    }
   </style>
   
   <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="console" id="console">
+  <div class="console">
     Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15-generic x86_64) <br />
     <br />
     * Documentation: <a href="https://help.ubuntu.com">https://help.ubuntu.com</a> <br />
@@ -103,10 +97,10 @@ __)(_|| | |__)(/__>| |o| |(/_|
     To see these additional updates run: apt list --upgradable<br /> <br />
 
     <div class="command-input">
-      SamSesh@127.0.0.1:~$ <span id="command-text"></span><span class='typed-cursor'>_</span>
+      SamSesh@127.0.0.1:~$ <span id="command-text"></span><span class='typed-cursor'>|</span>
     </div>
     
-    <input type="text" id="user-input" style="width: 400px; background: transparent; color: white; border: none; outline: none;" />
+    <input type="text" id="user-input" style="width: 400px; background: transparent; color: white; border: none; outline: none; position: absolute; left: 10px; top: 80px;" />
     
     <div id="AboutDevTypeText" class="typeing"></div>
 
@@ -154,57 +148,39 @@ __)(_|| | |__)(/__>| |o| |(/_|
       // Command input handling
       const userInput = document.getElementById('user-input');
       const commandText = document.getElementById('command-text');
-      const consoleDiv = document.getElementById('console');
 
       userInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
           const command = userInput.value.trim();
           const outputText = handleCommand(command);
+          userInput.value = ''; // Clear input
           commandText.innerHTML = command; // Display command
-
+          
           // Add output to the command line
           var commandOutput = document.createElement('p');
           commandOutput.className = 'command';
           commandOutput.innerHTML = outputText;
-          consoleDiv.appendChild(commandOutput);
+          document.querySelector('.console').appendChild(commandOutput);
 
-          // Clear input and scroll
-          userInput.value = ''; // Clear input
-          commandText.innerHTML = ''; // Reset command text
-          consoleDiv.scrollTop = consoleDiv.scrollHeight; // Scroll to the bottom
-
-          // Type info if command was 'info'
-          if (command === 'info') {
-            autoTypeInfo();
-          } else {
-            setTimeout(() => {
-              document.querySelector('.typed-cursor').innerHTML = '_';
-            }, 100); // Delay to allow the user to see the output
-          }
+          // Reset command text
+          commandText.innerHTML = '';
+          setTimeout(() => {
+            document.querySelector('.typed-cursor').innerHTML = '|'; // Reset cursor
+          }, 100); // Delay to allow the user to see the output
+        } else {
+          // Prevent the default behavior for typing in the input field
+          event.preventDefault();
+          // Append the key to the command text
+          commandText.innerHTML += event.key;
         }
       });
 
-      function autoTypeInfo() {
-        const infoText = data[0].AboutDevTypeText;
-        let i = 0;
-        let isTag = false;
-
-        function type() {
-          const text = infoText.slice(0, ++i);
-          if (text === infoText) return;
-          document.getElementById('AboutDevTypeText').innerHTML = text + `<span class='typed-cursor'>&#32;</span>`;
-          const char = text.slice(-1);
-          if (char === "<") isTag = true;
-          if (char === ">") isTag = false;
-          if (isTag) return type();
-          setTimeout(type, 60);
-        }
-        type();
-      }
+      userInput.addEventListener('focus', function() {
+        commandText.innerHTML = ''; // Clear command text on focus
+      });
 
       function handleCommand(command) {
         let outputText = '';
-
         if (command === 'donate') {
           window.open('https://donate.samsesh.net', '_blank');
           outputText = `Opening donation page...`;
@@ -212,7 +188,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
           window.open('https://t.me/sam_sesh', '_blank');
           outputText = `Opening Telegram channel...`;
         } else if (command === 'info') {
-          outputText = 'Displaying info...'; // Initial output before auto typing
+          document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
         } else {
           outputText = `Command not found: ${command}. Available commands: <br/> 
             <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
