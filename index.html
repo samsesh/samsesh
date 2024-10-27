@@ -8,7 +8,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="127.0.0.1:433 there’s no place like [her arm]">
+  <meta name="description" content="127.0.0.1:433 there's no place like [her arm]">
   <meta name="keywords" content="SamSesh, 127.0.0.1">
   <meta name="author" content="Sam Sesh">
   <title>SamSesh</title>
@@ -28,6 +28,9 @@ __)(_|| | |__)(/__>| |o| |(/_|
     p > p {
       display: inline;
     }
+    p.command:before {
+      content: 'SamSesh@127.0.0.1:~$ ';
+    }
     table {
       width: 425px; 
     }
@@ -39,9 +42,9 @@ __)(_|| | |__)(/__>| |o| |(/_|
       animation: blink 0.7s infinite;
     }
     @keyframes blink {
-      0% { opacity:1; }
-      50% { opacity:0; }
-      100% { opacity:1; }
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
     a {
       text-decoration: none;
@@ -56,10 +59,11 @@ __)(_|| | |__)(/__>| |o| |(/_|
     Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15-generic x86_64) <br />
     <br />
     * Documentation: <a href="https://help.ubuntu.com">https://help.ubuntu.com</a> <br />
-    * Management: <a href="https://landscape.canonical.com">https://landscape.canonical.com</a> <br />
-    * Support: <a href="https://ubuntu.com/advantage">https://ubuntu.com/advantage</a> <br /> <br />
+    * Management: <a href="https://landscape.canonical.com">https://landscape.canonical.com</a> <br /> 
+    * Support: <a href="https://ubuntu.com/advantage">https://ubuntu.com/advantage</a> <br /> 
+    <br />
 
-    System information as of <p id="date"></p>
+    System information as of <p id="date"></p>    
     <script>document.getElementById("date").innerHTML = Date();</script><br /><br /> 
 
     <table>
@@ -92,12 +96,35 @@ __)(_|| | |__)(/__>| |o| |(/_|
     3 updates are security updates. <br /> <br />
     To see these additional updates run: apt list --upgradable<br /> <br />
 
-    SamSesh@127.0.0.1:~$ <span id="commandInput"></span><span class='typed-cursor'>_</span>
+    SamSesh@127.0.0.1:~$ 
+    <span id="AboutDevTypeText" class="typeing"></span><span class='typed-cursor'>_</span>
 
     <script>
       var data = [
         {
-          AboutDevTypeText: "<span>cat info.txt<br/><br/>127.0.0.1<br/>there's no place like ♡ нет никакого места как<br/>maybe geek<br/><br/>SOCIAL MEDIA:<br/>Instagram : <a href='https://instagram.com/samseshtech' target='_blank'>samseshtech</a> <br/> Youtube : <a href='https://youtube.com/samseshtech' target='_blank'>samseshtech</a> <br/> Instagram : <a href='https://instagram.com/sam.sesh' target='_blank'>sam.sesh</a> <br/> Twitter : <a href='https://twitter.com/_samsesh' target='_blank'>_samsesh</a> <br/> Live : <a href='https://ym.sam.ym' target='_blank'>ym.sam.ym</a><br/> Telegram : <a href='https://t.me/sam_sesh' target='_blank'>sam_sesh</a>, <a href='https://t.me/SamSeshTech' target='_blank'>SamSeshTech</a> <br/> Linkedin : <a href='https://linkedin.com/in/sam-sesh' target='_blank'>sam-sesh</a> <br/> GitHub : <a href='https://github.com/samsesh' target='_blank'>samsesh</a> <br/> E-mail : <a href='mailto:admin@samsesh.net'>admin@samsesh.net</a> <br/> Phone Number : +1 (260) 306-5413  </span><br/><br/> DONATE: <br/>Cryptocurrency : <a href='https://nowpayments.io/donation/samsesh' target='_blank'>https://nowpayments.io/donation/samsesh</a> <br/>PayPal : <a href='https://paypal.me/samsesh' target='_blank'>https://paypal.me/samsesh</a> <br/>IDPay : <a href='https://IDPay.ir/samsesh' target='_blank'>https://IDPay.ir/samsesh</a><br/>Patreon : <a href='https://www.patreon.com/SamSesh' target='_blank'>https://www.patreon.com/SamSesh</a><br/><br/><span>SamSesh@127.0.0.1:~$</span>"
+          AboutDevTypeText: `
+            <span>
+            127.0.0.1<br/>
+            there's no place like ♡ нет никакого места как<br/>
+            maybe geek<br/><br/>
+            SOCIAL MEDIA:<br/>
+            Instagram : <a href='https://instagram.com/samseshtech' target='_blank'>samseshtech</a>, <a href='https://instagram.com/sam.sesh' target='_blank'>sam.sesh</a><br/>
+            Youtube : <a href='https://youtube.com/samseshtech' target='_blank'>samseshtech</a><br/>
+            Twitter : <a href='https://twitter.com/_samsesh' target='_blank'>_samsesh</a><br/>
+            Telegram : <a href='https://t.me/sam_sesh' target='_blank'>sam_sesh</a>, <a href='https://t.me/SamSeshTech' target='_blank'>SamSeshTech</a><br/>
+            Linkedin : <a href='https://linkedin.com/in/sam-sesh' target='_blank'>sam-sesh</a><br/>
+            GitHub : <a href='https://github.com/samsesh' target='_blank'>samsesh</a><br/>
+            E-mail : <a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>
+            Phone Number : +1 (260) 306-5413  
+            </span><br/><br/> 
+            <a href='https://donate.samsesh.net' target='_blank'>DONATE:</a><br/>
+            Cryptocurrency : <a href='https://nowpayments.io/donation/samsesh' target='_blank'>https://nowpayments.io/donation/samsesh</a><br/>
+            PayPal : <a href='https://paypal.me/samsesh' target='_blank'>https://paypal.me/samsesh</a><br/>
+            IDPay : <a href='https://IDPay.ir/samsesh' target='_blank'>https://IDPay.ir/samsesh</a><br/>
+            Patreon : <a href='https://www.patreon.com/SamSesh' target='_blank'>https://www.patreon.com/SamSesh</a><br/><br/>
+            <span>SamSesh@127.0.0.1:~$</span>
+            </span>
+          `
         }
       ];
 
@@ -122,23 +149,27 @@ __)(_|| | |__)(/__>| |o| |(/_|
         })();
       }
 
-      // Terminal command input
-      var commandInput = document.getElementById("commandInput");
+      // Command input handling
       document.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-          const command = commandInput.textContent.trim();
+          var input = document.querySelector('.typed-cursor');
+          var command = input.previousSibling.nodeValue.trim();
+          input.previousSibling.nodeValue = ''; // Clear input
+
           if (command === 'donate') {
             window.open('https://donate.samsesh.net', '_blank');
           } else if (command === 'telegram') {
-            window.open('https://t.me/SamSeshTech', '_blank');
+            window.open('https://t.me/sam_sesh', '_blank');
+          } else if (command === 'info') {
+            document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
           } else {
-            alert('Command not recognized');
+            document.getElementById('AboutDevTypeText').innerHTML += `<br/>Command not found: ${command}`;
           }
-          commandInput.textContent = ''; // Clear command input after execution
-        } else if (event.key.length === 1) { // If it's a character key
-          commandInput.textContent += event.key; // Append character to command input
-        } else if (event.key === 'Backspace') {
-          commandInput.textContent = commandInput.textContent.slice(0, -1); // Remove last character
+
+          // Re-add cursor
+          setTimeout(() => {
+            input.innerHTML = '_';
+          }, 10);
         }
       });
     </script>
