@@ -97,13 +97,8 @@ __)(_|| | |__)(/__>| |o| |(/_|
     3 updates are security updates. <br /> <br />
     To see these additional updates run: apt list --upgradable<br /> <br />
 
-    <div class="command-input">
-      SamSesh@127.0.0.1:~$ <span id="command-text"></span><span class='typed-cursor'>_</span>
-    </div>
-    
-    <input type="text" id="user-input" style="width: 400px; background: transparent; color: white; border: none; outline: none;" />
-    
-    <div id="AboutDevTypeText" class="typeing"></div>
+    SamSesh@127.0.0.1:~$ 
+    <span id="AboutDevTypeText" class="typeing"></span><span class='typed-cursor'>_</span>
 
     <script>
       // Fetch the user's public IP address from ipify
@@ -146,50 +141,68 @@ __)(_|| | |__)(/__>| |o| |(/_|
         }
       ];
 
-      // Command input handling
-      const userInput = document.getElementById('user-input');
-      const commandText = document.getElementById('command-text');
+      var allElements = document.getElementsByClassName("typeing");
+      var currentElementId = allElements[0].id;
+      var currentElementIdContent = data[0][currentElementId];
+      var element = document.getElementById(currentElementId);
+      var devTypeText = currentElementIdContent;
 
-      userInput.addEventListener('keydown', function(event) {
+      // Type code function
+      function typeText(text, i) {
+        if (i < text.length) {
+          element.innerHTML = text.slice(0, i + 1);
+          setTimeout(() => typeText(text, i + 1), 60);
+        }
+      }
+
+      typeText(devTypeText, 0); // Start typing effect
+
+      // Command input handling
+      document.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
-          const command = userInput.value.trim();
-          const outputText = handleCommand(command);
-          userInput.value = ''; // Clear input
-          commandText.innerHTML = command; // Display command
-          
+          var input = document.querySelector('.typed-cursor');
+          var command = input.previousSibling.nodeValue.trim();
+          input.previousSibling.nodeValue = ''; // Clear input
+
+          var outputText = ''; // Store command output
+
+          if (command === 'donate') {
+            window.open('https://donate.samsesh.net', '_blank');
+            outputText = `Opening donation page...`;
+          } else if (command === 'telegram') {
+            window.open('https://t.me/sam_sesh', '_blank');
+            outputText = `Opening Telegram channel...`;
+          } else if (command === 'info') {
+            document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
+            // Reset the cursor to the command prompt
+            setTimeout(() => {
+              document.querySelector('.typed-cursor').innerHTML = '_';
+            }, 100); // Delay to allow the user to see the output
+          } else {
+            outputText = `Command not found: ${command}. Available commands: <br/> 
+              <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
+              <a href='https://t.me/sam_sesh' target='_blank'>telegram</a>, 
+              <a href='#' onclick="document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText; return false;">info</a>`;
+          }
+
           // Add output to the command line
           var commandOutput = document.createElement('p');
           commandOutput.className = 'command';
           commandOutput.innerHTML = outputText;
           document.querySelector('.console').appendChild(commandOutput);
-
-          // Reset command text
-          commandText.innerHTML = '';
+          
+          // Re-add cursor
           setTimeout(() => {
-            document.querySelector('.typed-cursor').innerHTML = '_';
-          }, 100); // Delay to allow the user to see the output
+            input.innerHTML = '_';
+          }, 10);
+        } else {
+          // Allow typing
+          var input = document.querySelector('.typed-cursor');
+          var currentText = input.previousSibling.nodeValue;
+          input.previousSibling.nodeValue = currentText + event.key;
+          event.preventDefault(); // Prevent default behavior to stop adding to input
         }
       });
-
-      function handleCommand(command) {
-        let outputText = '';
-        if (command === 'donate') {
-          window.open('https://donate.samsesh.net', '_blank');
-          outputText = `Opening donation page...`;
-        } else if (command === 'telegram') {
-          window.open('https://t.me/sam_sesh', '_blank');
-          outputText = `Opening Telegram channel...`;
-        } else if (command === 'info') {
-          document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
-          outputText = `Displaying info...`;
-        } else {
-          outputText = `Command not found: ${command}. Available commands: <br/> 
-            <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
-            <a href='https://t.me/sam_sesh' target='_blank'>telegram</a>, 
-            <a href='#' onclick='document.getElementById("AboutDevTypeText").innerHTML=data[0].AboutDevTypeText;'>info</a>`;
-        }
-        return outputText;
-      }
     </script>
   </div>
 </body>
