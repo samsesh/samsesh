@@ -13,7 +13,7 @@
 
 ### 💖 Support My Work
 If you’d like to support my projects, consider making a donation on one of the platforms below:
-- **[Check my donate page](http://donate.samsesh.net/)** for more options and information.
+- **[Check my donate page](https://donate.samsesh.net/)** for more options and information.
 
 [![Reymit](https://img.shields.io/badge/Reymit-Donate-purple.svg)](https://reymit.ir/samsesh) |
 [![PayPal](https://img.shields.io/badge/PayPal-Donate-blue.svg)](https://paypal.me/samsesh) |
