@@ -20,6 +20,7 @@ If you’d like to support my projects, consider making a donation on one of the
 [![Crypto](https://img.shields.io/badge/Cryptocurrency-Donate-yellow.svg)](https://nowpayments.io/donation/samsesh) |
 [![Patreon](https://img.shields.io/badge/Patreon-Subscribe-red.svg)](https://www.patreon.com/SamSesh) |
 [![IDPay](https://img.shields.io/badge/IDPay-Donate-blue.svg)](https://idpay.ir/samsesh) |
+[![Zarinpal](https://img.shields.io/badge/Zarinpal-Donate-yellow.svg)](https://zarinp.al/samsesh) |
 [![CoffeeTe](https://img.shields.io/badge/CoffeeTe-Donate-brown.svg)](https://www.coffeete.ir/SamSesh)
 
 ---
