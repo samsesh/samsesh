@@ -8,14 +8,14 @@ __)(_|| | |__)(/__>| |o| |(/_|
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Sam Sesh — Developer & Tech Enthusiast. Personal online business card.">
+  <meta name="description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher. Personal online business card.">
   <meta name="keywords" content="SamSesh, 127.0.0.1, sam sesh, developer">
   <meta name="author" content="Sam Sesh">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Open Graph -->
   <meta property="og:title" content="SamSesh" />
-  <meta property="og:description" content="Sam Sesh — Developer & Tech Enthusiast. Personal online business card." />
+  <meta property="og:description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher. Personal online business card." />
   <meta property="og:url" content="https://samsesh.net/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://samsesh.net/Logo/logoB.png" />
@@ -24,7 +24,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:creator" content="@_samsesh" />
   <meta name="twitter:title" content="SamSesh" />
-  <meta name="twitter:description" content="Sam Sesh — Developer & Tech Enthusiast." />
+  <meta name="twitter:description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher." />
 
   <link rel="canonical" href="https://samsesh.net/" />
   <title>SamSesh</title>
@@ -78,6 +78,19 @@ __)(_|| | |__)(/__>| |o| |(/_|
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
+    }
+    .dim {
+      color: #666;
+    }
+    .hl {
+      color: #fff;
+      font-weight: bold;
+    }
+    .cmd-echo {
+      display: inline;
+    }
+    .output {
+      display: block;
     }
     a {
       text-decoration: none;
@@ -142,45 +155,108 @@ __)(_|| | |__)(/__>| |o| |(/_|
     <script>
       var infoContent =
         '<span>' +
-        'cat info.txt<br/>' +
-        '127.0.0.1<br/>' +
-        "there's no place like ♡ нет никакого места как<br/>" +
-        'maybe geek<br/><br/>' +
-        'SOCIAL MEDIA:<br/>' +
-        "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>Instagram</a> : samseshtech, " +
-        "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a><br/>" +
-        "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>Youtube</a> : samseshtech<br/>" +
-        "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>Twitter</a> : _samsesh<br/>" +
-        "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>Telegram</a> : sam_sesh, " +
-        "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a><br/>" +
-        "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>Linkedin</a> : sam-sesh<br/>" +
-        "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>GitHub</a> : samsesh<br/>" +
-        "<a href='mailto:admin@samsesh.net'>E-mail</a> : admin@samsesh.net<br/>" +
-        'Phone : +1 (260) 306-5413<br/>' +
-        '</span><br/><br/>' +
-        "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>DONATE:</a><br/>" +
-        "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>Cryptocurrency</a><br/>" +
-        "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>PayPal</a><br/>" +
-        "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>Patreon</a><br/><br/>" +
-        '<span>SamSesh@127.0.0.1:~$ </span>';
+        'DevSecOps & Cybersecurity Researcher<br/>' +
+        '127.0.0.1 — there\'s no place like home<br/><br/>' +
+        'SOCIALS<br/>' +
+        "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(instagram)</span><br/>" +
+        "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a> <span class='dim'>(instagram)</span><br/>" +
+        "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(youtube)</span><br/>" +
+        "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a> <span class='dim'>(twitter)</span><br/>" +
+        "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a> <span class='dim'>(telegram)</span><br/>" +
+        "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a> <span class='dim'>(telegram)</span><br/>" +
+        "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a> <span class='dim'>(linkedin)</span><br/>" +
+        "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a> <span class='dim'>(github)</span><br/><br/>" +
+        "CONTACT<br/>" +
+        "<a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
+        '+1 (260) 306-5413<br/><br/>' +
+        "DONATE<br/>" +
+        "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>donate.samsesh.net</a><br/>" +
+        "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>nowpayments.io/donation/samsesh</a><br/>" +
+        "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>paypal.me/samsesh</a><br/>" +
+        "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>patreon.com/SamSesh</a><br/>" +
+        '</span>';
 
       var typeEl = document.getElementById('AboutDevTypeText');
       var inputDisplay = document.getElementById('input-display');
       var commandBuffer = '';
+      var typingTimer = null;
+
+      function stopTyping() {
+        if (typingTimer) {
+          clearTimeout(typingTimer);
+          typingTimer = null;
+        }
+      }
 
       function typeText(text, i) {
         if (i < text.length) {
           typeEl.innerHTML = text.slice(0, i + 1);
-          setTimeout(function() { typeText(text, i + 1); }, 15);
+          typingTimer = setTimeout(function() { typeText(text, i + 1); }, 15);
         }
       }
       typeText(infoContent, 0);
 
-      function printOutput(html) {
+      function printLine(html, cls) {
         var p = document.createElement('p');
-        p.className = 'command';
+        p.className = cls || 'output';
         p.innerHTML = html;
         document.querySelector('.console').appendChild(p);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+
+      function echoAndExecute(cmd) {
+        stopTyping();
+        printLine('<span class="cmd-echo">' + cmd + '</span>', 'command');
+        inputDisplay.textContent = '';
+        commandBuffer = '';
+
+        var c = cmd.toLowerCase();
+        if (!c || c === 'help') {
+          printLine(
+            'Available commands:<br/>' +
+            '  <span class="hl">help</span>     Show this message<br/>' +
+            '  <span class="hl">info</span>     Display all contact info<br/>' +
+            '  <span class="hl">social</span>   Show social media links<br/>' +
+            '  <span class="hl">contact</span>  Show email & phone<br/>' +
+            '  <span class="hl">donate</span>   Open donation page<br/>' +
+            '  <span class="hl">telegram</span> Open Telegram channel<br/>' +
+            '  <span class="hl">clear</span>    Clear the terminal'
+          );
+        } else if (c === 'info') {
+          typeEl.innerHTML = infoContent;
+        } else if (c === 'social') {
+          printLine(
+            "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(instagram)</span><br/>" +
+            "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a> <span class='dim'>(instagram)</span><br/>" +
+            "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(youtube)</span><br/>" +
+            "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a> <span class='dim'>(twitter)</span><br/>" +
+            "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a> <span class='dim'>(telegram)</span><br/>" +
+            "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a> <span class='dim'>(telegram)</span><br/>" +
+            "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a> <span class='dim'>(linkedin)</span><br/>" +
+            "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a> <span class='dim'>(github)</span>"
+          );
+        } else if (c === 'contact') {
+          printLine(
+            "<a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
+            '+1 (260) 306-5413'
+          );
+        } else if (c === 'donate') {
+          window.open('https://donate.samsesh.net', '_blank', 'noopener');
+          printLine('Opening donate.samsesh.net...');
+        } else if (c === 'telegram') {
+          window.open('https://t.me/sam_sesh', '_blank', 'noopener');
+          printLine('Opening Telegram...');
+        } else if (c === 'clear') {
+          var all = document.querySelectorAll('.console .command, .console .output');
+          for (var i = 0; i < all.length; i++) {
+            all[i].remove();
+          }
+        } else {
+          printLine(
+            "Command not found: " + cmd + "<br/>" +
+            "Type <span class=\"hl\">help</span> for available commands."
+          );
+        }
         window.scrollTo(0, document.body.scrollHeight);
       }
 
@@ -192,54 +268,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
         }
 
         if (e.key === 'Enter') {
-          var cmd = commandBuffer.trim().toLowerCase();
-          commandBuffer = '';
-
-          if (cmd === 'help') {
-            printOutput(
-              'Available commands:<br/>' +
-              '  <strong>help</strong>     - Show this message<br/>' +
-              '  <strong>info</strong>     - Display contact & social info<br/>' +
-              '  <strong>social</strong>   - Show social media links<br/>' +
-              '  <strong>contact</strong>  - Show email & phone<br/>' +
-              '  <strong>donate</strong>   - Open donation page<br/>' +
-              '  <strong>telegram</strong> - Open Telegram channel<br/>' +
-              '  <strong>clear</strong>    - Clear the terminal'
-            );
-          } else if (cmd === 'info') {
-            typeEl.innerHTML = infoContent;
-          } else if (cmd === 'social') {
-            printOutput(
-              "Instagram : <a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a>, " +
-              "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a><br/>" +
-              "Youtube : <a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a><br/>" +
-              "Twitter : <a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a><br/>" +
-              "Telegram : <a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a><br/>" +
-              "GitHub : <a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a><br/>" +
-              "LinkedIn : <a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a>"
-            );
-          } else if (cmd === 'contact') {
-            printOutput(
-              "E-mail : <a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
-              'Phone : +1 (260) 306-5413'
-            );
-          } else if (cmd === 'donate') {
-            window.open('https://donate.samsesh.net', '_blank', 'noopener');
-            printOutput('Opening donation page...');
-          } else if (cmd === 'telegram') {
-            window.open('https://t.me/sam_sesh', '_blank', 'noopener');
-            printOutput('Opening Telegram channel...');
-          } else if (cmd === 'clear') {
-            var els = document.querySelectorAll('.console .command');
-            for (var i = 0; i < els.length; i++) {
-              els[i].remove();
-            }
-          } else if (cmd !== '') {
-            printOutput(
-              "Command not found: " + cmd + "<br/>" +
-              "Type <strong>help</strong> for available commands."
-            );
-          }
+          echoAndExecute(inputDisplay.textContent);
           return;
         }
 
