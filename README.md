@@ -25,8 +25,11 @@ samsesh@127.0.0.1:~$ ./stats
 </p>
 
 <p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=samsesh&theme=react-dark&hide_border=true&bg_color=0D1117" width="96%" />
+</p>
+
+<p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=samsesh&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" width="48%" />
-  <img src="https://github-profile-trophy.vercel.app/?username=samsesh&theme=radical&no-frame=true&column=4" width="48%" />
 </p>
 
 ---
