@@ -87,7 +87,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
       text-decoration: underline;
     }
     a[target="_blank"]::after {
-      content: ' \u2197';
+      content: ' \2197';
       font-size: 10px;
     }
     .console {
@@ -137,7 +137,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
     Welcome to the interactive terminal. Type <strong>help</strong> for available commands.<br /><br />
 
     SamSesh@127.0.0.1:~$
-    <span id="AboutDevTypeText" class="typeing"></span><span class="typed-cursor" id="cursor">_</span>
+    <span id="AboutDevTypeText" class="typeing"></span><span id="input-display"></span><span class="typed-cursor" id="cursor">_</span>
 
     <script>
       var infoContent =
@@ -165,13 +165,13 @@ __)(_|| | |__)(/__>| |o| |(/_|
         '<span>SamSesh@127.0.0.1:~$ </span>';
 
       var typeEl = document.getElementById('AboutDevTypeText');
-      var cursorEl = document.getElementById('cursor');
+      var inputDisplay = document.getElementById('input-display');
       var commandBuffer = '';
 
       function typeText(text, i) {
         if (i < text.length) {
           typeEl.innerHTML = text.slice(0, i + 1);
-          setTimeout(function() { typeText(text, i + 1); }, 60);
+          setTimeout(function() { typeText(text, i + 1); }, 15);
         }
       }
       typeText(infoContent, 0);
@@ -245,14 +245,14 @@ __)(_|| | |__)(/__>| |o| |(/_|
 
         if (e.key === 'Backspace') {
           commandBuffer = commandBuffer.slice(0, -1);
-          cursorEl.previousSibling.nodeValue = commandBuffer;
+          inputDisplay.textContent = commandBuffer;
           e.preventDefault();
           return;
         }
 
         if (e.key.length === 1) {
           commandBuffer += e.key;
-          cursorEl.previousSibling.nodeValue = commandBuffer;
+          inputDisplay.textContent = commandBuffer;
           e.preventDefault();
         }
       });
