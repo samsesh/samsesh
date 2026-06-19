@@ -8,43 +8,67 @@ __)(_|| | |__)(/__>| |o| |(/_|
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="127.0.0.1:433 there's no place like">
-  <meta name="keywords" content="SamSesh, 127.0.0.1">
+  <meta name="description" content="Sam Sesh — Developer & Tech Enthusiast. Personal online business card.">
+  <meta name="keywords" content="SamSesh, 127.0.0.1, sam sesh, developer">
   <meta name="author" content="Sam Sesh">
- 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5RY9S7ZZG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-N5RY9S7ZZG');
-</script>
+  <!-- Open Graph -->
+  <meta property="og:title" content="SamSesh" />
+  <meta property="og:description" content="Sam Sesh — Developer & Tech Enthusiast. Personal online business card." />
+  <meta property="og:url" content="https://samsesh.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://samsesh.net/Logo/logoB.png" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:creator" content="@_samsesh" />
+  <meta name="twitter:title" content="SamSesh" />
+  <meta name="twitter:description" content="Sam Sesh — Developer & Tech Enthusiast." />
+
+  <link rel="canonical" href="https://samsesh.net/" />
   <title>SamSesh</title>
-  <meta name="viewport" content="width=800">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' type='text/css'>
+
   <link rel="apple-touch-icon" href="https://github.com/samsesh/samsesh.net/raw/main/Logo/apple-touch-icon.png">
   <link rel="icon" type="image/x-icon" href="https://github.com/samsesh/samsesh.net/raw/main/Logo/favicon.ico">
+
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       background-color: black;
       color: white;
       padding: 10px;
-      font-family: 'Roboto Mono', sans-serif;
+      margin: 0;
+      font-family: 'Roboto Mono', monospace;
       font-size: 12px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     p {
       margin: 0;
     }
-    p > p {
+    .command-line {
       display: inline;
     }
-    p.command:before {
+    p.command::before {
       content: 'SamSesh@127.0.0.1:~$ ';
     }
     table {
-      width: 425px; 
+      width: 100%;
+      max-width: 480px;
+    }
+    td {
+      padding: 1px 8px 1px 0;
+      vertical-align: top;
     }
     .typed-cursor {
       display: inline-block;
@@ -52,170 +76,187 @@ __)(_|| | |__)(/__>| |o| |(/_|
       animation: blink 0.7s infinite;
     }
     @keyframes blink {
-      0% { opacity: 1; }
+      0%, 100% { opacity: 1; }
       50% { opacity: 0; }
-      100% { opacity: 1; }
     }
     a {
       text-decoration: none;
       color: #fff;
     }
+    a:hover {
+      text-decoration: underline;
+    }
+    a[target="_blank"]::after {
+      content: ' \u2197';
+      font-size: 10px;
+    }
+    .console {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 11px;
+        padding: 8px;
+        align-items: flex-start;
+        padding-top: 10px;
+      }
+      td {
+        display: inline-block;
+        padding: 0 4px 0 0;
+      }
+      td:nth-child(2)::after {
+        content: '';
+        display: block;
+      }
+      a[target="_blank"]::after {
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      body {
+        font-size: 10px;
+        padding: 6px;
+      }
+    }
   </style>
-  
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="console">
-    Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15-generic x86_64) <br />
-    <br />
-    * Documentation: <a href="https://help.ubuntu.com">https://help.ubuntu.com</a> <br />
-    * Management: <a href="https://landscape.canonical.com">https://landscape.canonical.com</a> <br /> 
-    * Support: <a href="https://ubuntu.com/advantage">https://ubuntu.com/advantage</a> <br /> 
-    <br />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5RY9S7ZZG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N5RY9S7ZZG');
+  </script>
 
-    System information as of <span id="date"></span>    
-    <script>document.getElementById("date").innerHTML = new Date();</script><br /><br /> 
+  <main class="console" role="terminal" aria-label="SamSesh terminal">
+    Welcome to the interactive terminal. Type <strong>help</strong> for available commands.<br /><br />
 
-    <table>
-      <tr>
-        <td>System load:</td>
-        <td>1.3</td>
-        <td>Processes:</td>
-        <td>190</td>
-      </tr>
-      <tr>
-        <td>Usage of /:</td>
-        <td>9.1% of 90.9GB</td>
-        <td>Users logged in:</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Memory usage:</td>
-        <td>27%</td>
-        <td>IP address for lo:</td>
-        <td>127.0.0.1</td>
-      </tr>
-      <tr>
-        <td>Swap usage:</td>
-        <td>6%</td>
-        <td>IP address for eth0:</td>
-        <td id="eth0-ip">Fetching...</td>
-      </tr>
-    </table>
-    <br /><br />
-
-    11 packages can be updated. <br />
-    3 updates are security updates. <br /> <br />
-    To see these additional updates run: apt list --upgradable<br /> <br />
-
-    SamSesh@127.0.0.1:~$ 
-    <span id="AboutDevTypeText" class="typeing"></span><span class='typed-cursor'>_</span>
+    SamSesh@127.0.0.1:~$
+    <span id="AboutDevTypeText" class="typeing"></span><span class="typed-cursor" id="cursor">_</span>
 
     <script>
-      // Fetch the user's public IP address from ipify
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('eth0-ip').textContent = data.ip;
-        })
-        .catch(error => {
-          document.getElementById('eth0-ip').textContent = 'Unable to fetch IP';
-          console.error('Error fetching IP:', error);
-        });
+      var infoContent =
+        '<span>' +
+        'cat info.txt<br/>' +
+        '127.0.0.1<br/>' +
+        "there's no place like ♡ нет никакого места как<br/>" +
+        'maybe geek<br/><br/>' +
+        'SOCIAL MEDIA:<br/>' +
+        "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>Instagram</a> : samseshtech, " +
+        "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a><br/>" +
+        "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>Youtube</a> : samseshtech<br/>" +
+        "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>Twitter</a> : _samsesh<br/>" +
+        "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>Telegram</a> : sam_sesh, " +
+        "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a><br/>" +
+        "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>Linkedin</a> : sam-sesh<br/>" +
+        "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>GitHub</a> : samsesh<br/>" +
+        "<a href='mailto:admin@samsesh.net'>E-mail</a> : admin@samsesh.net<br/>" +
+        'Phone : +1 (260) 306-5413<br/>' +
+        '</span><br/><br/>' +
+        "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>DONATE:</a><br/>" +
+        "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>Cryptocurrency</a><br/>" +
+        "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>PayPal</a><br/>" +
+        "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>Patreon</a><br/><br/>" +
+        '<span>SamSesh@127.0.0.1:~$ </span>';
 
-      var data = [
-        {
-          AboutDevTypeText: `
-            <span>
-            cat info.txt<br/>
-            127.0.0.1<br/>
-            there's no place like ♡ нет никакого места как<br/>
-            maybe geek<br/><br/>
-            SOCIAL MEDIA:<br/>
-            Instagram : <a href='https://instagram.com/samseshtech' target='_blank'>samseshtech</a>, <a href='https://instagram.com/sam.sesh' target='_blank'>sam.sesh</a><br/>
-            Youtube : <a href='https://youtube.com/@samseshtech' target='_blank'>samseshtech</a><br/>
-            Twitter : <a href='https://twitter.com/_samsesh' target='_blank'>_samsesh</a><br/>
-            Telegram : <a href='https://t.me/sam_sesh' target='_blank'>sam_sesh</a>, <a href='https://t.me/SamSeshTech' target='_blank'>SamSeshTech</a><br/>
-            Linkedin : <a href='https://linkedin.com/in/sam-sesh' target='_blank'>sam-sesh</a><br/>
-            GitHub : <a href='https://github.com/samsesh' target='_blank'>samsesh</a><br/>
-            E-mail : <a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>
-            Phone Number : +1 (260) 306-5413  
-            </span><br/><br/> 
-            <a href='https://donate.samsesh.net' target='_blank'>DONATE:</a><br/>
-            Cryptocurrency : <a href='https://nowpayments.io/donation/samsesh' target='_blank'>https://nowpayments.io/donation/samsesh</a><br/>
-            PayPal : <a href='https://paypal.me/samsesh' target='_blank'>https://paypal.me/samsesh</a><br/>
-            IDPay : <a href='https://IDPay.ir/samsesh' target='_blank'>https://IDPay.ir/samsesh</a><br/>
-            Patreon : <a href='https://www.patreon.com/SamSesh' target='_blank'>https://www.patreon.com/SamSesh</a><br/><br/>
-            <span>SamSesh@127.0.0.1:~$</span>
-            </span>
-          `
-        }
-      ];
+      var typeEl = document.getElementById('AboutDevTypeText');
+      var cursorEl = document.getElementById('cursor');
+      var commandBuffer = '';
 
-      var allElements = document.getElementsByClassName("typeing");
-      var currentElementId = allElements[0].id;
-      var currentElementIdContent = data[0][currentElementId];
-      var element = document.getElementById(currentElementId);
-      var devTypeText = currentElementIdContent;
-
-      // Type code function
       function typeText(text, i) {
         if (i < text.length) {
-          element.innerHTML = text.slice(0, i + 1);
-          setTimeout(() => typeText(text, i + 1), 60);
+          typeEl.innerHTML = text.slice(0, i + 1);
+          setTimeout(function() { typeText(text, i + 1); }, 60);
         }
       }
+      typeText(infoContent, 0);
 
-      typeText(devTypeText, 0); // Start typing effect
+      function printOutput(html) {
+        var p = document.createElement('p');
+        p.className = 'command';
+        p.innerHTML = html;
+        document.querySelector('.console').appendChild(p);
+        window.scrollTo(0, document.body.scrollHeight);
+      }
 
-      // Command input handling
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-          var input = document.querySelector('.typed-cursor');
-          var command = input.previousSibling.nodeValue.trim();
-          input.previousSibling.nodeValue = ''; // Clear input
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' ||
+            e.key === 'Meta' || e.key === 'CapsLock' || e.key === 'Tab' ||
+            e.key === 'Escape') {
+          return;
+        }
 
-          var outputText = ''; // Store command output
+        if (e.key === 'Enter') {
+          var cmd = commandBuffer.trim().toLowerCase();
+          commandBuffer = '';
 
-          if (command === 'donate') {
-            window.open('https://donate.samsesh.net', '_blank');
-            outputText = `Opening donation page...`;
-          } else if (command === 'telegram') {
-            window.open('https://t.me/sam_sesh', '_blank');
-            outputText = `Opening Telegram channel...`;
-          } else if (command === 'info') {
-            document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText;
-            // Reset the cursor to the command prompt
-            setTimeout(() => {
-              document.querySelector('.typed-cursor').innerHTML = '_';
-            }, 100); // Delay to allow the user to see the output
-          } else {
-            outputText = `Command not found: ${command}. Available commands: <br/> 
-              <a href='https://donate.samsesh.net' target='_blank'>donate</a>, 
-              <a href='https://t.me/sam_sesh' target='_blank'>telegram</a>, 
-              <a href='#' onclick="document.getElementById('AboutDevTypeText').innerHTML = data[0].AboutDevTypeText; return false;">info</a>`;
+          if (cmd === 'help') {
+            printOutput(
+              'Available commands:<br/>' +
+              '  <strong>help</strong>     - Show this message<br/>' +
+              '  <strong>info</strong>     - Display contact & social info<br/>' +
+              '  <strong>social</strong>   - Show social media links<br/>' +
+              '  <strong>contact</strong>  - Show email & phone<br/>' +
+              '  <strong>donate</strong>   - Open donation page<br/>' +
+              '  <strong>telegram</strong> - Open Telegram channel<br/>' +
+              '  <strong>clear</strong>    - Clear the terminal'
+            );
+          } else if (cmd === 'info') {
+            typeEl.innerHTML = infoContent;
+          } else if (cmd === 'social') {
+            printOutput(
+              "Instagram : <a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a>, " +
+              "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a><br/>" +
+              "Youtube : <a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a><br/>" +
+              "Twitter : <a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a><br/>" +
+              "Telegram : <a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a><br/>" +
+              "GitHub : <a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a><br/>" +
+              "LinkedIn : <a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a>"
+            );
+          } else if (cmd === 'contact') {
+            printOutput(
+              "E-mail : <a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
+              'Phone : +1 (260) 306-5413'
+            );
+          } else if (cmd === 'donate') {
+            window.open('https://donate.samsesh.net', '_blank', 'noopener');
+            printOutput('Opening donation page...');
+          } else if (cmd === 'telegram') {
+            window.open('https://t.me/sam_sesh', '_blank', 'noopener');
+            printOutput('Opening Telegram channel...');
+          } else if (cmd === 'clear') {
+            var els = document.querySelectorAll('.console .command');
+            for (var i = 0; i < els.length; i++) {
+              els[i].remove();
+            }
+          } else if (cmd !== '') {
+            printOutput(
+              "Command not found: " + cmd + "<br/>" +
+              "Type <strong>help</strong> for available commands."
+            );
           }
+          return;
+        }
 
-          // Add output to the command line
-          var commandOutput = document.createElement('p');
-          commandOutput.className = 'command';
-          commandOutput.innerHTML = outputText;
-          document.querySelector('.console').appendChild(commandOutput);
-          
-          // Re-add cursor
-          setTimeout(() => {
-            input.innerHTML = '_';
-          }, 10);
-        } else {
-          // Allow typing
-          var input = document.querySelector('.typed-cursor');
-          var currentText = input.previousSibling.nodeValue;
-          input.previousSibling.nodeValue = currentText + event.key;
-          event.preventDefault(); // Prevent default behavior to stop adding to input
+        if (e.key === 'Backspace') {
+          commandBuffer = commandBuffer.slice(0, -1);
+          cursorEl.previousSibling.nodeValue = commandBuffer;
+          e.preventDefault();
+          return;
+        }
+
+        if (e.key.length === 1) {
+          commandBuffer += e.key;
+          cursorEl.previousSibling.nodeValue = commandBuffer;
+          e.preventDefault();
         }
       });
     </script>
-  </div>
+  </main>
 </body>
 </html>
-
