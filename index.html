@@ -147,8 +147,16 @@ __)(_|| | |__)(/__>| |o| |(/_|
   </script>
 
   <main class="console" role="terminal" aria-label="SamSesh terminal">
-    Welcome to the interactive terminal. Type <strong>help</strong> for available commands.<br /><br />
-
+    Ubuntu 22.04 LTS (GNU/Linux 5.15.0-generic x86_64)<br />
+    <br />
+    * Documentation:  <a href="https://help.ubuntu.com">help.ubuntu.com</a><br />
+    * Management:     <a href="https://landscape.canonical.com">landscape.canonical.com</a><br />
+    * Support:        <a href="https://ubuntu.com/pro">ubuntu.com/pro</a><br />
+    <br />
+    0 updates can be applied immediately.<br />
+    <br />
+    SamSesh@127.0.0.1:~$ <span class="dim">type <span class="hl">help</span> for available commands</span><br />
+    <br />
     SamSesh@127.0.0.1:~$
     <span id="AboutDevTypeText" class="typeing"></span><span id="input-display"></span><span class="typed-cursor" id="cursor">_</span>
 
@@ -210,17 +218,24 @@ __)(_|| | |__)(/__>| |o| |(/_|
         inputDisplay.textContent = '';
         commandBuffer = '';
 
-        var c = cmd.toLowerCase();
+        var parts = cmd.trim().split(/\s+/);
+        var c = parts[0].toLowerCase();
+        var args = parts.slice(1);
         if (!c || c === 'help') {
           printLine(
-            'Available commands:<br/>' +
-            '  <span class="hl">help</span>     Show this message<br/>' +
-            '  <span class="hl">info</span>     Display all contact info<br/>' +
-            '  <span class="hl">social</span>   Show social media links<br/>' +
-            '  <span class="hl">contact</span>  Show email & phone<br/>' +
-            '  <span class="hl">donate</span>   Open donation page<br/>' +
-            '  <span class="hl">telegram</span> Open Telegram channel<br/>' +
-            '  <span class="hl">clear</span>    Clear the terminal'
+            'available commands:<br/>' +
+            '  <span class="hl">help</span>       show this message<br/>' +
+            '  <span class="hl">info</span>       display all contact info<br/>' +
+            '  <span class="hl">social</span>     show social media links<br/>' +
+            '  <span class="hl">contact</span>    show email & phone<br/>' +
+            '  <span class="hl">donate</span>     show donation options<br/>' +
+            '  <span class="hl">telegram</span>   open Telegram channel<br/>' +
+            '  <span class="hl">whoami</span>     who you are<br/>' +
+            '  <span class="hl">date</span>       current date and time<br/>' +
+            '  <span class="hl">uptime</span>     system uptime<br/>' +
+            '  <span class="hl">uname</span>      system information<br/>' +
+            '  <span class="hl">echo</span>       repeat text<br/>' +
+            '  <span class="hl">clear</span>      clear the terminal'
           );
         } else if (c === 'info') {
           typeEl.innerHTML = infoContent;
@@ -241,11 +256,33 @@ __)(_|| | |__)(/__>| |o| |(/_|
             '+1 (260) 306-5413'
           );
         } else if (c === 'donate') {
+          printLine(
+            '<span class="hl">=== DONATION OPTIONS ===</span><br/>' +
+            "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>donate.samsesh.net</a> <span class='dim'>(donation page)</span><br/>" +
+            "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>paypal.me/samsesh</a> <span class='dim'>(paypal)</span><br/>" +
+            "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>nowpayments.io/donation/samsesh</a> <span class='dim'>(crypto)</span><br/>" +
+            "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>patreon.com/SamSesh</a> <span class='dim'>(patreon)</span><br/>" +
+            '<span class="dim">opening donate.samsesh.net...</span>'
+          );
           window.open('https://donate.samsesh.net', '_blank', 'noopener');
-          printLine('Opening donate.samsesh.net...');
         } else if (c === 'telegram') {
           window.open('https://t.me/sam_sesh', '_blank', 'noopener');
-          printLine('Opening Telegram...');
+          printLine('opening Telegram...');
+        } else if (c === 'whoami') {
+          printLine('samsesh');
+        } else if (c === 'date') {
+          printLine(new Date().toString());
+        } else if (c === 'uptime') {
+          printLine(' 12:34:56 up 127 days,  0:01,  1 user,  load average: 0.00, 0.01, 0.05');
+        } else if (c === 'uname') {
+          var ua = args.join(' ');
+          if (ua === '-a') {
+            printLine('Linux 127.0.0.1 5.15.0-generic #1 SMP Ubuntu 22.04 LTS x86_64 GNU/Linux');
+          } else {
+            printLine('Linux');
+          }
+        } else if (c === 'echo') {
+          printLine(args.join(' '));
         } else if (c === 'clear') {
           var all = document.querySelectorAll('.console .command, .console .output');
           for (var i = 0; i < all.length; i++) {
@@ -253,8 +290,7 @@ __)(_|| | |__)(/__>| |o| |(/_|
           }
         } else {
           printLine(
-            "Command not found: " + cmd + "<br/>" +
-            "Type <span class=\"hl\">help</span> for available commands."
+            "bash: " + cmd + ": command not found"
           );
         }
         window.scrollTo(0, document.body.scrollHeight);
