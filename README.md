@@ -16,25 +16,6 @@ samsesh@127.0.0.1:~$ cat about.txt
 ---
 
 ```text
-samsesh@127.0.0.1:~$ ./stats
-```
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=samsesh&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=samsesh&theme=radical&hide_border=true&background=0D1117" width="48%" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=samsesh&theme=react-dark&hide_border=true&bg_color=0D1117" width="96%" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=samsesh&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" width="48%" />
-</p>
-
----
-
-```text
 samsesh@127.0.0.1:~$ cat contact.txt
 ```
 
