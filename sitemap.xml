@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Main Website: samsesh.net (Top Priority) -->
+  <!-- Main Website: samsesh.net (top priority) -->
   <url>
     <loc>https://samsesh.net/</loc>
+    <lastmod>2025-08-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>1.00</priority>
   </url>
-  
+
   <!-- Donation Page: donate.samsesh.net -->
   <url>
     <loc>https://donate.samsesh.net/</loc>
+    <lastmod>2025-08-08</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
-  <!-- Blog Website: blog.samsesh.net -->
+  <!-- Blog: blog.samsesh.net -->
   <url>
     <loc>https://blog.samsesh.net/</loc>
+    <lastmod>2025-08-08</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.80</priority>
   </url>
 </urlset>
