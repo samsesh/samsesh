@@ -1,327 +1,1560 @@
-<!DOCTYPE html>
 <!--
+   hi, curl. yes, this is the whole website — one html file.
+   the real interface is a terminal: open https://samsesh.net in
+   a browser, log in (no password), and type:  cat info.txt
+
  __         __
 (_  _.._ _ (_  _  _|_  ._  __|_
 __)(_|| | |__)(/__>| |o| |(/_|
+
+ samsesh .............. DevSecOps & Cybersecurity Researcher
+ motto ................ 127.0.0.1 — there's no place like home
+
+ ── socials ──────────────────────────────────────────────
+   instagram     samseshtech     https://instagram.com/samseshtech
+   instagram     sam.sesh        https://instagram.com/sam.sesh
+   youtube       samseshtech     https://youtube.com/@samseshtech
+   twitter       _samsesh        https://twitter.com/_samsesh
+   telegram      sam_sesh        https://t.me/sam_sesh
+   telegram      SamSeshTech     https://t.me/SamSeshTech
+   linkedin      sam-sesh        https://linkedin.com/in/sam-sesh
+   github        samsesh         https://github.com/samsesh
+
+ ── contact ──────────────────────────────────────────────
+   email         admin@samsesh.net
+   phone         +1 (260) 306-5413
+
+ ── donate ───────────────────────────────────────────────
+   donation      https://donate.samsesh.net
+   paypal        https://paypal.me/samsesh
+   crypto        https://nowpayments.io/donation/samsesh
+   patreon       https://www.patreon.com/SamSesh
+
+ everything below is the actual page source.
+ view-sourcer, you're among friends here.
 -->
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="linux">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher. Personal online business card.">
-  <meta name="keywords" content="SamSesh, 127.0.0.1, sam sesh, developer">
-  <meta name="author" content="Sam Sesh">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+   samsesh.net — tty edition, v1.9 — the seo release
+   v1.9:
+     · full SEO head: OG + Twitter cards (logo from raw.githubusercontent),
+       geo tags, JSON-LD Person+WebSite (sameAs → all socials)
+     · <noscript> card — crawlers can't log in, so the card is plain
+       HTML too; title stays static until a human logs in
+     · robots.txt + sitemap.xml ship separately (repo root)
+   v1.8: visitor ip in the prompt · curl says hi
+   try: cat info.txt · info · curl
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SamSesh" />
-  <meta property="og:description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher. Personal online business card." />
-  <meta property="og:url" content="https://samsesh.net/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://samsesh.net/Logo/logoB.png" />
+<title>SamSesh — DevSecOps &amp; Cybersecurity Researcher</title>
+<meta name="description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher. A business card you operate with commands: log in, type cat info.txt.">
+<meta name="keywords" content="SamSesh, Sam Sesh, samsesh.net, samsesh, devsecops, cybersecurity, security researcher, terminal, 127.0.0.1">
+<meta name="author" content="Sam Sesh">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#15171a">
+<link rel="canonical" href="https://samsesh.net/">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:creator" content="@_samsesh" />
-  <meta name="twitter:title" content="SamSesh" />
-  <meta name="twitter:description" content="Sam Sesh — DevSecOps & Cybersecurity Researcher." />
+<!-- after verifying in Google Search Console, paste the token here:
+<meta name="google-site-verification" content="YOUR_TOKEN">
+-->
 
-  <link rel="canonical" href="https://samsesh.net/" />
-  <title>SamSesh</title>
+<!-- geo / local search — EDIT ME: your real city + coordinates -->
+<meta name="geo.region" content="US-IN">
+<meta name="geo.placename" content="Fort Wayne">
+<meta name="geo.position" content="41.0793;-85.1394">
+<meta name="ICBM" content="41.0793, -85.1394">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap' rel='stylesheet' type='text/css'>
+<!-- Open Graph — how the card looks when shared -->
+<meta property="og:site_name" content="SamSesh">
+<meta property="og:title" content="SamSesh — DevSecOps & Cybersecurity Researcher">
+<meta property="og:description" content="A business card you operate with commands: log in, type cat info.txt.">
+<meta property="og:url" content="https://samsesh.net/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/samsesh/samsesh/refs/heads/main/Logo/samseshlogo.png">
+<meta property="og:image:alt" content="SamSesh logo">
 
-  <link rel="apple-touch-icon" href="https://github.com/samsesh/samsesh.net/raw/main/Logo/apple-touch-icon.png">
-  <link rel="icon" type="image/x-icon" href="https://github.com/samsesh/samsesh.net/raw/main/Logo/favicon.ico">
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@_samsesh">
+<meta name="twitter:creator" content="@_samsesh">
+<meta name="twitter:title" content="SamSesh">
+<meta name="twitter:description" content="DevSecOps & Cybersecurity Researcher. A terminal you can type at.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/samsesh/samsesh/refs/heads/main/Logo/samseshlogo.png">
 
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-    body {
-      background-color: black;
-      color: white;
-      padding: 10px;
-      margin: 0;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 12px;
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    p {
-      margin: 0;
-    }
-    .command-line {
-      display: inline;
-    }
-    p.command::before {
-      content: 'SamSesh@127.0.0.1:~$ ';
-    }
-    table {
-      width: 100%;
-      max-width: 480px;
-    }
-    td {
-      padding: 1px 8px 1px 0;
-      vertical-align: top;
-    }
-    .typed-cursor {
-      display: inline-block;
-      opacity: 1;
-      animation: blink 0.7s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .dim {
-      color: #666;
-    }
-    .hl {
-      color: #fff;
-      font-weight: bold;
-    }
-    .cmd-echo {
-      display: inline;
-    }
-    .output {
-      display: block;
-    }
-    a {
-      text-decoration: none;
-      color: #fff;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    a[target="_blank"]::after {
-      content: ' \2197';
-      font-size: 10px;
-    }
-    .console {
-      max-width: 720px;
-      width: 100%;
-    }
+<!-- icons -->
+<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/samsesh/samsesh/refs/heads/main/Logo/favicon.ico">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/samsesh/samsesh/refs/heads/main/Logo/samseshlogo.png">
 
-    @media (max-width: 600px) {
-      body {
-        font-size: 11px;
-        padding: 8px;
-        align-items: flex-start;
-        padding-top: 10px;
-      }
-      td {
-        display: inline-block;
-        padding: 0 4px 0 0;
-      }
-      td:nth-child(2)::after {
-        content: '';
-        display: block;
-      }
-      a[target="_blank"]::after {
-        font-size: 9px;
-      }
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
-    @media (max-width: 400px) {
-      body {
-        font-size: 10px;
-        padding: 6px;
-      }
+<!-- Google tag (gtag.js) — carried over from the old site. delete this block if you'd rather run dark. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N5RY9S7ZZG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-N5RY9S7ZZG');
+</script>
+
+<!-- structured data — this is what actually feeds search engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://samsesh.net/#website",
+      "url": "https://samsesh.net/",
+      "name": "SamSesh",
+      "description": "DevSecOps & Cybersecurity Researcher — a business card you operate with commands.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://samsesh.net/#me" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://samsesh.net/#me",
+      "name": "Sam Sesh",
+      "url": "https://samsesh.net/",
+      "image": "https://raw.githubusercontent.com/samsesh/samsesh/refs/heads/main/Logo/samseshlogo.png",
+      "jobTitle": "DevSecOps & Cybersecurity Researcher",
+      "email": "mailto:admin@samsesh.net",
+      "telephone": "+1-260-306-5413",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fort Wayne",
+        "addressRegion": "IN",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://instagram.com/samseshtech",
+        "https://instagram.com/sam.sesh",
+        "https://youtube.com/@samseshtech",
+        "https://twitter.com/_samsesh",
+        "https://t.me/sam_sesh",
+        "https://t.me/SamSeshTech",
+        "https://linkedin.com/in/sam-sesh",
+        "https://github.com/samsesh"
+      ]
     }
-  </style>
+  ]
+}
+</script>
+
+<style>
+/* ── tty.css — hand-tuned, like everything here ─────────────────────── */
+*{ box-sizing:border-box; margin:0; padding:0 }
+
+/* themes. 'linux' = default. 'ubuntu' = the purple. green/amber = phosphor. */
+html[data-theme="linux"]{
+  --bg:#15171a; --fg:#d2d2d2; --bright:#ffffff; --dim:#848484; --ghost:#5c5c5c;
+  --user:#8ae234; --path:#3465a4; --dir:#3465a4; --link:#729fcf; --err:#ef5350;
+}
+html[data-theme="ubuntu"]{
+  --bg:#300a24; --fg:#f2f2f2; --bright:#ffffff; --dim:#a89bb0; --ghost:#7d6d7b;
+  --user:#8ae234; --path:#3465a4; --dir:#729fcf; --link:#729fcf; --err:#ef5350;
+}
+html[data-theme="green"]{
+  --bg:#000; --fg:#33ff66; --bright:#b8ffc4; --dim:#27a158; --ghost:#1e7a44;
+  --user:#33ff66; --path:#33ff66; --dir:#b8ffc4; --link:#b8ffc4; --err:#b8ffc4;
+}
+html[data-theme="amber"]{
+  --bg:#0d0700; --fg:#ffb000; --bright:#ffd98c; --dim:#a8721f; --ghost:#7d5a1a;
+  --user:#ffb000; --path:#ffb000; --dir:#ffd98c; --link:#ffd98c; --err:#ffd98c;
+}
+html[data-theme="mono"]{
+  --bg:#0b0b0b; --fg:#d6d6d6; --dim:#8a8a8a; --bright:#ffffff; --ghost:#5c5c5c;
+  --user:#d6d6d6; --path:#ffffff; --dir:#ffffff; --link:#ffffff; --err:#ff7070;
+}
+
+html,body{ height:100% }
+/* the old site's exact font: Roboto Mono, 12px, 1.5 */
+body{
+  background:var(--bg); color:var(--fg);
+  font-family:'Roboto Mono',monospace;
+  font-size:12px;
+  line-height:1.5;
+  overflow:hidden;
+}
+::selection{ background:var(--fg); color:var(--bg) }
+
+/* the noscript card — crawlers and no-JS humans read this */
+.nojs{ max-width:74ch; margin:0 auto; padding:16px 14px }
+.nojs p{ margin:.5em 0 }
+.nojs a{ color:var(--link); text-decoration:underline }
+
+#screen{ height:100vh; height:100dvh; display:flex; flex-direction:column }
+#screen.degauss{ animation:degauss .45s ease-out }
+@keyframes degauss{
+  0%{transform:none} 18%{transform:translateX(-7px) skewX(.5deg)}
+  38%{transform:translateX(6px) skewX(-.45deg)} 60%{transform:translateX(-3px)}
+  82%{transform:translateX(2px)} 100%{transform:none}
+}
+
+/* the terminal — one scrolling flow, prompt included, like real Linux */
+#term{ flex:1; min-height:0; display:flex; flex-direction:column; cursor:text }
+#scroll{ flex:1; min-height:0; overflow-y:auto; overflow-x:hidden; padding:12px 14px 6px;
+  overscroll-behavior:contain;
+  scrollbar-width:thin; scrollbar-color:var(--dim) transparent }
+#scroll::-webkit-scrollbar{ width:8px }
+#scroll::-webkit-scrollbar-thumb{ background:var(--dim) }
+#scroll::-webkit-scrollbar-track{ background:transparent }
+.wout{ width:min(100ch,100%); margin-inline:auto }
+.line{ white-space:pre-wrap; overflow-wrap:anywhere; min-height:1.5em }
+.dim{ color:var(--dim) }
+.bright{ color:var(--bright) }
+.err{ color:var(--err) }
+a{ color:var(--link); text-decoration:none }
+a:hover{ text-decoration:underline }
+
+/* the live prompt line — an ordinary line at the END of the scroll flow */
+#promptline{ white-space:pre-wrap; overflow-wrap:anywhere; min-height:1.5em }
+#promptline.busy{ opacity:.45 }
+
+/* PS1 — green user@<visitor's real ip>, bold blue path */
+.p-user{ color:var(--user); font-weight:700 }
+.p-path{ color:var(--path); font-weight:700 }
+
+#pcursor{
+  background:var(--fg); color:var(--bg);
+  animation:blink 1.06s infinite; /* 1.06s — CRT-accurate */
+}
+#pcursor.solid{ animation:none }
+@keyframes blink{ 0%,49.4%{opacity:1} 49.6%,100%{opacity:0} }
+#pghost{ color:var(--ghost); opacity:.9 }
+#pghost.flick{ animation:gflick .22s }
+@keyframes gflick{ 0%{opacity:0} 35%{opacity:1} 55%{opacity:.3} 100%{opacity:.9} }
+
+/* click-to-run affordances + ls colors */
+[data-cmd]{ border-bottom:1px dotted var(--dim); cursor:pointer }
+[data-cmd]:hover{ color:var(--bright); border-bottom-style:solid }
+.d{ color:var(--dir); font-weight:700 }
+
+.banner{ white-space:pre; font-size:min(12px,3.2vw); line-height:1.2; color:var(--bright); margin:.25em 0 }
+
+/* markdown (dormant — wakes up if posts return) */
+.md{ white-space:normal; margin:.15em 0 }
+.md p{ margin:.5em 0 }
+.md h1{ color:var(--bright); font-weight:700; font-size:1.18em; margin:.75em 0 .35em;
+  padding-bottom:.12em; border-bottom:1px solid var(--dim) }
+.md h2{ color:var(--bright); font-weight:700; margin:.75em 0 .25em }
+.md h2::before{ content:"## "; color:var(--dim); font-weight:400 }
+.md h3{ font-weight:700; margin:.6em 0 .2em }
+.md h3::before{ content:"### "; color:var(--dim); font-weight:400 }
+.md ul,.md ol{ margin:.4em 0 .4em .5ch; padding-left:1.6ch; list-style:none }
+.md ol{ list-style:decimal }
+.md li{ margin:.14em 0 }
+.md li::marker{ color:var(--dim) }
+.md ul li::before{ content:"·  "; color:var(--dim) }
+.md b{ color:var(--bright); font-weight:700 }
+.md a{ color:var(--link); text-decoration:underline; text-underline-offset:3px }
+.md blockquote{ margin:.55em 0; padding:.05em 0 .05em 1ch; border-left:2px solid var(--dim);
+  color:var(--dim); font-style:italic }
+.md .hr{ border-top:1px dashed var(--dim); margin:.85em 0 }
+pre.code{ white-space:pre; overflow-x:auto; margin:.55em 0; padding:.5em .8em;
+  border-left:2px solid var(--dim);
+  background:color-mix(in srgb, var(--fg) 6%, transparent);
+}
+.ic{ background:var(--fg); color:var(--bg); padding:0 .12em }
+
+/* man page */
+.man-t{ color:var(--bright) }
+.man-s{ color:var(--bright); font-weight:700 }
+
+/* the actual typist — hidden input. 16px = no iOS zoom. */
+#hid{ position:fixed; top:0; left:0; width:1px; height:1px; opacity:0; border:0;
+  background:none; color:transparent; font-size:16px; z-index:1; }
+
+/* the CRT layer — off by default; real terminals don't scanline */
+#crt{ position:fixed; inset:0; z-index:50; pointer-events:none; display:none }
+body.crt-on #crt{ display:block }
+#crt::before{ content:""; position:absolute; inset:0;
+  background:repeating-linear-gradient(to bottom, rgba(0,0,0,.27) 0 1px, transparent 1px 3px);
+}
+#crt::after{ content:""; position:absolute; inset:0;
+  background:radial-gradient(115% 100% at 50% 42%, transparent 58%, rgba(0,0,0,.42));
+}
+#crt .roll{ position:absolute; left:0; right:0; top:-20%; height:14%;
+  background:linear-gradient(to bottom, transparent, rgba(255,255,255,.05), transparent);
+  animation:roll 9s linear infinite;
+}
+@keyframes roll{ from{ transform:translateY(0) } to{ transform:translateY(900%) } }
+body.crt-on #screen{ text-shadow:0 0 2px color-mix(in srgb, currentColor 26%, transparent) }
+
+@media (max-width:600px){
+  body{ font-size:11px }
+  #scroll{ padding:10px 10px 4px }
+}
+@media (max-width:400px){
+  body{ font-size:10px }
+}
+@media (prefers-reduced-motion:reduce){
+  #pcursor,#crt .roll,#screen.degauss,#pghost.flick{ animation:none }
+}
+</style>
 </head>
 <body>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5RY9S7ZZG"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-N5RY9S7ZZG');
-  </script>
 
-  <main class="console" role="terminal" aria-label="SamSesh terminal">
-    Ubuntu 22.04 LTS (GNU/Linux 5.15.0-generic x86_64)<br />
-    <br />
-    * Documentation:  <a href="https://help.ubuntu.com">help.ubuntu.com</a><br />
-    * Management:     <a href="https://landscape.canonical.com">landscape.canonical.com</a><br />
-    * Support:        <a href="https://ubuntu.com/pro">ubuntu.com/pro</a><br />
-    <br />
-    0 updates can be applied immediately.<br />
-    <br />
-    SamSesh@127.0.0.1:~$ <span class="dim">type <span class="hl">help</span> for available commands</span><br />
-    <br />
-    SamSesh@127.0.0.1:~$
-    <span id="AboutDevTypeText" class="typeing"></span><span id="input-display"></span><span class="typed-cursor" id="cursor">_</span>
+<!-- crawlers can't log in and type — so the card exists as plain HTML too -->
+<noscript>
+  <div class="nojs">
+    <p><b>Sam Sesh</b> — DevSecOps &amp; Cybersecurity Researcher.</p>
+    <p>127.0.0.1 — there's no place like home.</p>
+    <p>This site is a Linux-style terminal. Enable JavaScript to log in and
+       type commands — the whole card is <code>cat info.txt</code>.</p>
+    <p>
+      instagram: <a href="https://instagram.com/samseshtech">samseshtech</a> ·
+      <a href="https://instagram.com/sam.sesh">sam.sesh</a> ·
+      youtube: <a href="https://youtube.com/@samseshtech">samseshtech</a> ·
+      twitter: <a href="https://twitter.com/_samsesh">_samsesh</a> ·
+      telegram: <a href="https://t.me/sam_sesh">sam_sesh</a> ·
+      <a href="https://t.me/SamSeshTech">SamSeshTech</a> ·
+      linkedin: <a href="https://linkedin.com/in/sam-sesh">sam-sesh</a> ·
+      github: <a href="https://github.com/samsesh">samsesh</a>
+    </p>
+    <p>
+      email: <a href="mailto:admin@samsesh.net">admin@samsesh.net</a> ·
+      phone: <a href="tel:+12603065413">+1 (260) 306-5413</a>
+    </p>
+    <p>
+      donate: <a href="https://donate.samsesh.net">donate.samsesh.net</a> ·
+      <a href="https://paypal.me/samsesh">paypal</a> ·
+      <a href="https://nowpayments.io/donation/samsesh">crypto</a> ·
+      <a href="https://www.patreon.com/SamSesh">patreon</a>
+    </p>
+  </div>
+</noscript>
 
-    <script>
-      var infoContent =
-        '<span>' +
-        'DevSecOps & Cybersecurity Researcher<br/>' +
-        '127.0.0.1 — there\'s no place like home<br/><br/>' +
-        'SOCIALS<br/>' +
-        "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(instagram)</span><br/>" +
-        "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a> <span class='dim'>(instagram)</span><br/>" +
-        "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(youtube)</span><br/>" +
-        "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a> <span class='dim'>(twitter)</span><br/>" +
-        "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a> <span class='dim'>(telegram)</span><br/>" +
-        "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a> <span class='dim'>(telegram)</span><br/>" +
-        "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a> <span class='dim'>(linkedin)</span><br/>" +
-        "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a> <span class='dim'>(github)</span><br/><br/>" +
-        "CONTACT<br/>" +
-        "<a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
-        '+1 (260) 306-5413<br/><br/>' +
-        "DONATE<br/>" +
-        "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>donate.samsesh.net</a><br/>" +
-        "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>nowpayments.io/donation/samsesh</a><br/>" +
-        "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>paypal.me/samsesh</a><br/>" +
-        "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>patreon.com/SamSesh</a><br/>" +
-        '</span>';
+<div id="screen">
+  <div id="term">
+    <div id="scroll"></div>
+  </div>
+</div>
+<div id="crt" aria-hidden="true"><div class="roll"></div></div>
+<input id="hid" type="text" autocomplete="off" autocapitalize="off" autocorrect="off"
+       enterkeyhint="go" spellcheck="false" aria-label="terminal input">
 
-      var typeEl = document.getElementById('AboutDevTypeText');
-      var inputDisplay = document.getElementById('input-display');
-      var commandBuffer = '';
-      var typingTimer = null;
+<!-- ════════════════════════════════════════════════════════════════════
+     ~/info.txt — THE FILE. edit the three arrays in the JS below
+     and both 'cat info.txt' and 'info' update themselves.
+     (edit spots: 1. the curl card at the top of this file
+                  2. the <noscript> card above, for search engines
+                  3. the arrays below, for the terminal)
+     ════════════════════════════════════════════════════════════════════ -->
 
-      function stopTyping() {
-        if (typingTimer) {
-          clearTimeout(typingTimer);
-          typingTimer = null;
+<script type="text/samse" id="file:.plan">
+status, finger-style:
+  [x] ship samsh 1.0 — you are inside it right now
+  [x] everything in one file: info.txt (and 'info' is just an alias)
+  [x] login without a password (we trust you now)
+  [x] curl: one honest packet, live from ifconfig.co
+  [x] your real ip in the prompt — the terminal knows who's asking
+  [x] curl samsesh.net says hi before the source starts
+  [x] seo: og, twitter, geo, json-ld, noscript card
+  [ ] posts, someday — it is always "someday"
+  [ ] stop adding easter eggs   (status: failing)
+
+mood:   bash, no multiplexer, no shame
+threat: low, but caffeinated
+uptime: no place like home
+</script>
+
+<script type="text/samse" id="file:.zshrc">
+# the whole thing. yes, all of it.
+export EDITOR=vim            # bias documented nowhere, felt everywhere
+setopt INTERACTIVE_COMMENTS  # otherwise this file is a lie
+alias ll='ls -la'
+alias who='cat info.txt'     # the front door
+alias myip='curl ifconfig.co'   # know thyself
+alias recon='nmap -sV -p- $(curl -s ifconfig.co)'   # know thy neighborhood
+alias please='sudo'          # etiquette matters
+</script>
+
+<!-- the man page — 'help' prints this with a staggered scroll -->
+<script type="text/samse" id="doc:man">
+SAMSESH(1)                   User Commands                    SAMSESH(1)
+
+NAME
+       samsesh - DevSecOps & cybersecurity researcher, at a prompt
+
+SYNOPSIS
+       <command> [args]     everything here is a command. Tab completes.
+
+DESCRIPTION
+       Sam Sesh's business card, wearing a terminal costume. One HTML
+       file, no build step, honest localStorage. Log in, type one
+       command, know one person. the prompt host is your own public
+       ip, resolved live — the terminal knows who's asking. and from
+       a real terminal, 'curl samsesh.net' says hello before the
+       source begins.
+
+GETTING IN
+       samsesh login:    any name works; Enter alone makes you 'guest'.
+                         no password is asked — we trust you (bravely)
+       login as 'root'   if you want the # prompt and the attitude
+
+COMMANDS
+       cat info.txt      everything about me, in one file. start here
+       info              alias for 'cat ~/info.txt' — same card, lazier
+       ls [dir]          list what little there is (ls -l for dates)
+       cat <file>        read a file
+       social            just the socials
+       contact           email & phone
+       donate            the coffee fund — opens donate.samsesh.net
+       telegram          open t.me/sam_sesh
+       mail [addr]       compose a message; end the body with '.'
+       curl [url]        your ip + geo info, live from ifconfig.co
+       neofetch          the system card. pure flex.
+       hostname          your ip, actually — that's the host now
+       login             switch user without closing the tab
+       logout, exit      end the session — the login prompt returns
+       theme [name]      linux | ubuntu | green | amber | mono
+       crt [on|off]      scanlines, phosphor bloom, mild nostalgia
+       sound [on|off]    opt-in keypress audio, extremely subtle
+       history           everything you've typed here
+       uptime            load average, honestly
+       clear             wipe scrollback (Ctrl+L works too)
+
+KEYS
+       Tab              accept the grey ghost completion
+       Up / Down        walk command history
+       Left / Right     move the cursor inside the line
+       Home / End       jump to start / end of line
+       Ctrl+C           cancel line
+       Ctrl+D           end the session on an empty line
+       Ctrl+U           wipe line     Ctrl+L   clear screen
+
+FILES
+       ~/info.txt        the whole site, honestly — 'info' is an alias
+                         for catting this exact file
+       ~/.plan           current status, finger-style
+       ~/.zshrc          a config file with nothing to prove
+
+EXAMPLES
+       cat info.txt
+       info
+       curl ifconfig.co
+       mail admin@samsesh.net
+
+SEE ALSO
+       cat(1), mail(1), curl(1), your muscle memory
+
+BUGS
+       None. Features.
+
+samsesh.net 3.2.1                       June 2025                     SAMSESH(1)
+</script>
+
+<script>
+'use strict';
+/* ════════════════════════════════════════════════════════════════════
+   samsh 1.9 — seo release
+   ════════════════════════════════════════════════════════════════════ */
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* the live prompt line — sits at the END of the scroll flow, exactly
+   where a real terminal keeps its prompt. output goes in above it. */
+const promptline=document.createElement('div');
+promptline.id='promptline';
+promptline.innerHTML='<span id="pprompt"></span><span id="pbefore"></span>'+
+  '<span id="pcursor"> </span><span id="pghost"></span><span id="pafter"></span>';
+
+const scrollEl=$('#scroll'), screenEl=$('#screen'), hid=$('#hid'),
+  pprompt = promptline.querySelector('#pprompt'),
+  pbefore= promptline.querySelector('#pbefore'),
+  pcursor= promptline.querySelector('#pcursor'),
+  pghost = promptline.querySelector('#pghost'),
+  pafter = promptline.querySelector('#pafter');
+const out=document.createElement('div');
+out.className='wout';
+
+const store = {
+  get(k,d){ try{ const v=localStorage.getItem('samsh:'+k); return v===null? d : JSON.parse(v); }catch(e){ return d; } },
+  set(k,v){ try{ localStorage.setItem('samsh:'+k, JSON.stringify(v)); }catch(e){} }
+};
+
+const RM    = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TOUCH = 'ontouchstart' in window || navigator.maxTouchPoints>0;
+const T0    = Date.now();
+const DAYS  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONS  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ── content ─────────────────────────────────────────────────────────── */
+const DOCS = {};
+document.querySelectorAll('script[type="text/samse"]').forEach(el=>{
+  DOCS[el.id] = { text: el.textContent.replace(/^\r?\n/,'').replace(/\s+$/,'') };
+});
+/* posts: add <script type="text/samse" id="post:file.md" data-tags="...">
+   blocks and ~/posts, ~/tags, grep all come back to life. */
+const POSTS = [];
+
+/* ── EDIT ME — these three arrays ARE ~/info.txt ─────────────────────── */
+const SOCIALS = [
+  { label:'samseshtech', url:'https://instagram.com/samseshtech',      net:'instagram' },
+  { label:'sam.sesh',    url:'https://instagram.com/sam.sesh',         net:'instagram' },
+  { label:'samseshtech', url:'https://youtube.com/@samseshtech',       net:'youtube' },
+  { label:'_samsesh',    url:'https://twitter.com/_samsesh',           net:'twitter' },
+  { label:'sam_sesh',    url:'https://t.me/sam_sesh',                  net:'telegram' },
+  { label:'SamSeshTech', url:'https://t.me/SamSeshTech',               net:'telegram channel' },
+  { label:'sam-sesh',    url:'https://linkedin.com/in/sam-sesh',       net:'linkedin' },
+  { label:'samsesh',     url:'https://github.com/samsesh',             net:'github' },
+];
+const CONTACT = { email:'admin@samsesh.net', phone:'+1 (260) 306-5413', phoneHref:'+12603065413' };
+const DONATE = [
+  { label:'donate.samsesh.net',              url:'https://donate.samsesh.net',                  net:'donation page' },
+  { label:'paypal.me/samsesh',               url:'https://paypal.me/samsesh',                   net:'paypal' },
+  { label:'nowpayments.io/donation/samsesh', url:'https://nowpayments.io/donation/samsesh',     net:'crypto' },
+  { label:'patreon.com/SamSesh',             url:'https://www.patreon.com/SamSesh',             net:'patreon' },
+];
+/* add repos here and ~/projects appears: { name, lang, url, desc } */
+const PROJECTS = [];
+const TAGS = () => [...new Set(POSTS.flatMap(p=>p.tags))].sort();
+
+/* ── the visitor's real ip — the prompt host, resolved live ──────────── */
+let PREV_IP = store.get('lastIP', null);      /* previous session's ip */
+let myIP    = PREV_IP;                        /* shows instantly, refreshed below */
+const HOST  = () => (myIP && /^[0-9a-fA-F.:]{3,45}$/.test(myIP)) ? myIP : 'samsesh.net';
+const isIP = ip => typeof ip==='string' && /^[0-9a-fA-F.:]{3,45}$/.test(ip);
+async function resolveMyIP(){
+  let ip=null;
+  try{ const d=JSON.parse(await httpGet('https://ifconfig.co/json',4500)); ip=d&&d.ip; }catch(e){}
+  if(!isIP(ip)){
+    try{ const d=JSON.parse(await httpGet('https://ipwho.is/',4500)); ip=d&&d.ip; }catch(e){}
+  }
+  if(!isIP(ip)){
+    try{ const d=JSON.parse(await httpGet('https://api.ipify.org?format=json',4500)); ip=d&&d.ip; }catch(e){}
+  }
+  if(isIP(ip) && ip!==myIP){
+    myIP=ip;
+    store.set('lastIP',ip);
+    setPrompt();               /* prompt + tab title now show the real ip */
+  }
+}
+
+/* ── tiny markdown renderer (dormant — wakes up if posts return) ─────── */
+function inline(s){
+  s = esc(s);
+  const codes=[];
+  s = s.replace(/`([^`]+)`/g, (_,c)=>{ codes.push(c); return '\x00'+(codes.length-1)+'\x00'; });
+  s = s.replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>');
+  s = s.replace(/(^|[^*])\*([^*\s][^*]*?)\*/g,'$1<i>$2</i>');
+  s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+    (_,t,u)=>`<a href="${u}" target="_blank" rel="noopener">${t}</a>`);
+  s = s.replace(/\x00(\d+)\x00/g, (_,n)=>`<span class="ic">${codes[n]}</span>`);
+  return s;
+}
+function renderMD(src){
+  const lines = src.split('\n'); const html=[]; let para=[], i=0;
+  const flush = ()=>{ if(para.length){ html.push('<p>'+inline(para.join(' '))+'</p>'); para=[]; } };
+  while(i<lines.length){
+    const L=lines[i];
+    if(/^(~~~|```)/.test(L)){ flush(); const buf=[]; i++;
+      while(i<lines.length && !/^(~~~|```)/.test(lines[i])){ buf.push(lines[i]); i++; }
+      i++; html.push('<pre class="code">'+esc(buf.join('\n'))+'</pre>'); continue; }
+    const h=L.match(/^(#{1,6})\s+(.*)/);
+    if(h){ flush(); const lv=Math.min(h[1].length,4);
+      html.push(`<h${lv}>`+inline(h[2])+`</h${lv}>`); i++; continue; }
+    if(/^(---+|\*\*\*+)\s*$/.test(L)){ flush(); html.push('<div class="hr"></div>'); i++; continue; }
+    if(/^>\s?/.test(L)){ flush(); const buf=[];
+      while(i<lines.length && /^>\s?/.test(lines[i])){ buf.push(lines[i].replace(/^>\s?/,'')); i++; }
+      html.push('<blockquote>'+inline(buf.join(' '))+'</blockquote>'); continue; }
+    if(/^([-*]|\d+\.)\s+/.test(L)){ flush(); const ol=/^\d+\./.test(L), items=[];
+      while(i<lines.length && /^([-*]|\d+\.)\s+/.test(lines[i])){
+        items.push(lines[i].replace(/^([-*]|\d+\.)\s+/,'')); i++; }
+      html.push((ol?'<ol>':'<ul>')+items.map(t=>'<li>'+inline(t)+'</li>').join('')+(ol?'</ol>':'</ul>')); continue; }
+    if(/^\s*$/.test(L)){ flush(); i++; continue; }
+    para.push(L.trim()); i++;
+  }
+  flush();
+  return html.join('');
+}
+
+/* ── output / scrollback — every line goes in ABOVE the live prompt ──── */
+let stick = true;
+scrollEl.addEventListener('scroll', ()=>{
+  stick = scrollEl.scrollHeight - scrollEl.scrollTop - scrollEl.clientHeight < 60;
+});
+function line(html, cls){
+  const d=document.createElement('div');
+  d.className='line'+(cls?' '+cls:'');
+  d.innerHTML=html==null?'':html;
+  if(promptline.parentNode===out) out.insertBefore(d, promptline);
+  else out.appendChild(d);
+  if(stick) scrollEl.scrollTop=scrollEl.scrollHeight;
+  return d;
+}
+
+/* ── virtual filesystem ──────────────────────────────────────────────── */
+let USER='guest', cwd=[], prevCwd=null;
+const pathStr  = s => s.length ? '~/'+s.join('/') : '~';
+const HOMEABS  = () => USER==='root' ? '/root' : '/home/'+USER;
+
+function dirEntries(segs){
+  if(!segs.length){
+    const m=new Map();
+    if(POSTS.length)    m.set('posts',{kind:'dir'});
+    if(PROJECTS.length) m.set('projects',{kind:'dir'});
+    if(TAGS().length)   m.set('tags',{kind:'dir'});
+    m.set('info.txt',{kind:'doc',doc:'file:info.txt'});
+    m.set('.zshrc',{kind:'doc',doc:'file:.zshrc'});
+    m.set('.plan',{kind:'doc',doc:'file:.plan'});
+    return m;
+  }
+  const [a,b]=segs;
+  if(a==='posts' && segs.length===1 && POSTS.length)
+    return new Map(POSTS.map(p=>[p.file,{kind:'post',post:p}]));
+  if(a==='projects' && PROJECTS.length){
+    if(segs.length===1) return new Map(PROJECTS.map(p=>[p.name,{kind:'projdir',proj:p}]));
+    const p=PROJECTS.find(p=>p.name===b);
+    if(p && segs.length===2) return new Map([['README.md',{kind:'project',proj:p}]]);
+    return null;
+  }
+  if(a==='tags' && TAGS().length){
+    if(segs.length===1) return new Map(TAGS().map(t=>[t,{kind:'dir'}]));
+    if(TAGS().includes(b) && segs.length===2)
+      return new Map(POSTS.filter(p=>p.tags.includes(b)).map(p=>[p.file,{kind:'post',post:p}]));
+    return null;
+  }
+  return null;
+}
+function resolvePath(arg){
+  let rest=arg, segs;
+  if(rest==='~' || rest===HOMEABS()) return {segs:[]};
+  if(rest.startsWith('~/')){ segs=[]; rest=rest.slice(2); }
+  else if(rest.startsWith(HOMEABS()+'/')){ segs=[]; rest=rest.slice(HOMEABS().length+1); }
+  else if(rest.startsWith('/')){ segs=[]; rest=rest.replace(/^\/+((home|root)\/[^/]+\/)?/, a=>a); }
+  else segs=[...cwd];
+  for(const part of rest.split('/')){
+    if(!part || part==='.') continue;
+    if(part==='..'){ segs.pop(); continue; }
+    segs.push(part);
+  }
+  return {segs};
+}
+function nodeAt(segs){
+  if(!segs.length) return {kind:'home'};
+  const entries=dirEntries(segs.slice(0,-1));
+  if(!entries) return null;
+  return entries.get(segs[segs.length-1]) || null;
+}
+const isDirNode = n => n && (n.kind==='dir'||n.kind==='projdir');
+
+/* ── terminal state ──────────────────────────────────────────────────── */
+let lineText='', caret=0, MODE=null;
+let ghost='', lastGhost='\x01', comps=[];
+let busy=false, skipFlag=false;
+let HIST=store.get('hist',[]), hIdx=null, savedDraft='';
+let curTheme='linux', sndOn=false, COLS=80, CH=7.2;
+
+function promptHTML(){
+  if(MODE && MODE.type==='mail')   return `<span class="dim">${esc(MODE.label)}</span>`;
+  if(MODE && MODE.type==='login')  return esc(MODE.label);
+  return `<span class="p-user">${esc(USER)}@${esc(HOST())}</span>:`+
+         `<span class="p-path">${esc(pathStr(cwd))}</span>`+
+         (USER==='root' ? '# ' : '$ ');
+}
+const setPrompt = ()=>{
+  pprompt.innerHTML = promptHTML();
+  /* pre-login the static SEO title stays — only humans get the tty title */
+  if(MODE && MODE.type==='login') return;
+  document.title = `${USER}@${HOST()}: ${pathStr(cwd)}`;
+};
+const echoCmd   = t  =>{ line(promptHTML()+esc(t)); };
+
+function render(){
+  pbefore.textContent = lineText.slice(0,caret);
+  pcursor.textContent = lineText[caret] || ' ';
+  pafter.textContent  = caret<lineText.length ? lineText.slice(caret+1) : '';
+  computeGhost();
+}
+function computeGhost(){
+  ghost=''; comps=[];
+  if(!MODE && caret===lineText.length && lineText){
+    const tok = lineText.match(/[^ ]*$/)[0];
+    if(tok===lineText){                                   /* first token: commands */
+      comps = Object.keys(COMMANDS).filter(c=>c.startsWith(tok)&&c.length>tok.length)
+              .sort().map(c=>({insert:c,name:c,dir:false}));
+    } else {
+      const cmd   = lineText.slice(0,lineText.length-tok.length).trim().split(/\s+/)[0];
+      const slash = tok.lastIndexOf('/');
+      const dirPart = slash>=0 ? tok.slice(0,slash+1) : '';
+      const base    = slash>=0 ? tok.slice(slash+1)   : tok;
+      if(cmd==='curl'){                                   /* curl completes its own URLs */
+        comps = ['ifconfig.co','ifconfig.co/json','ifconfig.co/all']
+          .filter(t=>t.startsWith(tok))
+          .map(t=>({insert:t,name:t,dir:false}));
+      } else {
+        const entries = dirEntries(resolvePath(dirPart||'.').segs);
+        if(entries){
+          comps = [...entries.keys()]
+            .filter(n=>n.startsWith(base) && (!n.startsWith('.')||base.startsWith('.')))
+            .map(n=>({insert:dirPart+n+(isDirNode(entries.get(n))?'/':''), name:n,
+                      dir:isDirNode(entries.get(n))}));
+          if(cmd==='cd' && !dirPart)
+            TAGS().forEach(t=>{ if(t.startsWith(base) && !entries.has(t)) comps.push({insert:t,name:t,dir:true}); });
+          if(cmd==='open' && !dirPart)
+            comps = PROJECTS.filter(p=>p.name.startsWith(base)).map(p=>({insert:p.name,name:p,dir:false}));
         }
       }
+      comps = comps.filter(c=>c.insert.length>tok.length).sort((a,b)=>a.name.localeCompare(b.name));
+    }
+    ghost = comps.length ? comps[0].insert.slice(lineText.match(/[^ ]*$/)[0].length) : '';
+  }
+  pghost.textContent = ghost;
+  if(ghost!==lastGhost){ lastGhost=ghost;
+    pghost.classList.remove('flick'); void pghost.offsetWidth; pghost.classList.add('flick'); }
+}
+function insertText(t){
+  const tok = lineText.match(/[^ ]*$/)[0];
+  lineText = lineText.slice(0, lineText.length-tok.length) + t;
+  caret = lineText.length;
+  syncHid(); render();
+}
+function acceptGhost(){
+  if(!comps.length) return;
+  const tok = lineText.match(/[^ ]*$/)[0];
+  if(comps.length===1){ insertText(comps[0].insert); blip(); return; }
+  const pfx = comps.map(c=>c.insert).reduce((a,b)=>{
+    let i=0; while(i<a.length && i<b.length && a[i]===b[i]) i++; return a.slice(0,i);
+  });
+  if(pfx.length>tok.length){ insertText(pfx); blip(); return; }
+  line(comps.map(c=>esc(c.name+(c.dir?'/':''))).join('   '),'dim');
+}
 
-      function typeText(text, i) {
-        if (i < text.length) {
-          typeEl.innerHTML = text.slice(0, i + 1);
-          typingTimer = setTimeout(function() { typeText(text, i + 1); }, 15);
-        }
+/* ── cursor & audio ──────────────────────────────────────────────────── */
+let pokeT=null;
+function pokeCursor(){
+  pcursor.classList.add('solid');
+  clearTimeout(pokeT);
+  pokeT=setTimeout(()=>pcursor.classList.remove('solid'),700);
+}
+let AC=null, noiseBuf=null;
+function ensureAC(){
+  if(!sndOn) return null;
+  try{
+    if(!AC){
+      const C=window.AudioContext||window.webkitAudioContext; if(!C) return null;
+      AC=new C();
+      noiseBuf=AC.createBuffer(1,2048,AC.sampleRate);
+      const d=noiseBuf.getChannelData(0);
+      for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1;
+    }
+    if(AC.state==='suspended') AC.resume();
+    return AC;
+  }catch(e){ return null; }
+}
+function keyClick(pitch=1){
+  const a=ensureAC(); if(!a) return; const t=a.currentTime;
+  const s=a.createBufferSource(); s.buffer=noiseBuf;
+  const f=a.createBiquadFilter(); f.type='bandpass'; f.frequency.value=2300*pitch; f.Q.value=1.5;
+  const g=a.createGain(); g.gain.setValueAtTime(.10,t); g.gain.exponentialRampToValueAtTime(.001,t+.05);
+  s.connect(f); f.connect(g); g.connect(a.destination); s.start(t); s.stop(t+.06);
+}
+function thunk(){
+  const a=ensureAC(); if(!a) return; const t=a.currentTime;
+  const o=a.createOscillator(); o.type='triangle'; o.frequency.value=150;
+  const g=a.createGain(); g.gain.setValueAtTime(.08,t); g.gain.exponentialRampToValueAtTime(.001,t+.09);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+.1);
+}
+function blip(){
+  const a=ensureAC(); if(!a) return; const t=a.currentTime;
+  const o=a.createOscillator(); o.type='sine'; o.frequency.value=920;
+  const g=a.createGain(); g.gain.setValueAtTime(.05,t); g.gain.exponentialRampToValueAtTime(.001,t+.035);
+  o.connect(g); g.connect(a.destination); o.start(t); o.stop(t+.04);
+}
+
+/* ── input handling — fully manual, always wired, mobile-friendly ────── */
+const syncHid = ()=>{ hid.value=lineText; try{ hid.setSelectionRange(caret,caret); }catch(e){} };
+function setLine(v){ lineText=v; caret=v.length; syncHid(); render(); }
+function typeChar(ch){
+  lineText = lineText.slice(0,caret)+ch+lineText.slice(caret);
+  caret++;
+  syncHid(); render();
+}
+function backspace(){
+  if(caret>0){
+    lineText = lineText.slice(0,caret-1)+lineText.slice(caret);
+    caret--; syncHid(); render();
+  }
+}
+function histPrev(){
+  if(MODE || !HIST.length) return;
+  if(hIdx===null){ savedDraft=lineText; hIdx=HIST.length-1; }
+  else if(hIdx>0) hIdx--;
+  setLine(HIST[hIdx]);
+}
+function histNext(){
+  if(MODE || hIdx===null) return;
+  hIdx++;
+  if(hIdx>=HIST.length){ hIdx=null; setLine(savedDraft); }
+  else setLine(HIST[hIdx]);
+}
+function wipeLine(){ lineText=lineText.slice(caret); caret=0; syncHid(); render(); }
+function ctrlC(){
+  line(promptHTML()+esc(lineText)+'<span class="bright">^C</span>');
+  if(MODE && MODE.type==='mail'){
+    MODE=null; setPrompt();
+    line('(draft discarded — the mail never knew you)','dim');
+  }
+  lineText=''; caret=0; syncHid(); render();
+}
+
+function onKey(e){
+  if(e.isComposing) return;
+  if(e.target!==hid && (e.ctrlKey || e.metaKey || e.altKey)) return;
+  if(busy){
+    if(e.key.length===1 || e.key==='Enter'){ skipFlag=true; e.preventDefault(); }
+    return;
+  }
+  if((e.ctrlKey || e.metaKey) && !(e.ctrlKey && e.altKey)){
+    const k=e.key.toLowerCase();
+    if(k==='c'){ e.preventDefault(); ctrlC(); return; }
+    if(k==='l'){ e.preventDefault(); out.innerHTML=''; out.appendChild(promptline); return; }
+    if(k==='u'){ e.preventDefault(); wipeLine(); return; }
+    if(k==='a'){ e.preventDefault(); caret=0; syncHid(); render(); return; }
+    if(k==='e'){ e.preventDefault(); caret=lineText.length; syncHid(); render(); return; }
+    if(k==='d'){                                  /* EOF on empty line, like bash */
+      e.preventDefault();
+      if(MODE) return;
+      if(!lineText){ endSession(); }
+      else if(caret<lineText.length){
+        lineText=lineText.slice(0,caret)+lineText.slice(caret+1);
+        syncHid(); render();
       }
-      typeText(infoContent, 0);
-
-      function printLine(html, cls) {
-        var p = document.createElement('p');
-        p.className = cls || 'output';
-        p.innerHTML = html;
-        document.querySelector('.console').appendChild(p);
-        window.scrollTo(0, document.body.scrollHeight);
+      return;
+    }
+    return;
+  }
+  switch(e.key){
+    case 'Enter': case 'NumpadEnter':
+      e.preventDefault(); thunk(); submit(); return;
+    case 'Tab':
+      e.preventDefault(); acceptGhost(); return;
+    case 'ArrowUp':    e.preventDefault(); histPrev(); return;
+    case 'ArrowDown':  e.preventDefault(); histNext(); return;
+    case 'ArrowLeft':
+      e.preventDefault(); if(caret>0){ caret--; syncHid(); render(); } return;
+    case 'ArrowRight':
+      e.preventDefault(); if(caret<lineText.length){ caret++; syncHid(); render(); } return;
+    case 'Home': e.preventDefault(); caret=0; syncHid(); render(); return;
+    case 'End':  e.preventDefault(); caret=lineText.length; syncHid(); render(); return;
+    case 'Backspace': e.preventDefault(); backspace(); keyClick(.7); return;
+    case 'Delete':
+      e.preventDefault();
+      if(caret<lineText.length){
+        lineText=lineText.slice(0,caret)+lineText.slice(caret+1);
+        syncHid(); render();
       }
-
-      function echoAndExecute(cmd) {
-        stopTyping();
-        printLine('<span class="cmd-echo">' + cmd + '</span>', 'command');
-        inputDisplay.textContent = '';
-        commandBuffer = '';
-
-        var parts = cmd.trim().split(/\s+/);
-        var c = parts[0].toLowerCase();
-        var args = parts.slice(1);
-        if (!c || c === 'help') {
-          printLine(
-            'available commands:<br/>' +
-            '  <span class="hl">help</span>       show this message<br/>' +
-            '  <span class="hl">info</span>       display all contact info<br/>' +
-            '  <span class="hl">social</span>     show social media links<br/>' +
-            '  <span class="hl">contact</span>    show email & phone<br/>' +
-            '  <span class="hl">donate</span>     show donation options<br/>' +
-            '  <span class="hl">telegram</span>   open Telegram channel<br/>' +
-            '  <span class="hl">whoami</span>     who you are<br/>' +
-            '  <span class="hl">date</span>       current date and time<br/>' +
-            '  <span class="hl">uptime</span>     system uptime<br/>' +
-            '  <span class="hl">uname</span>      system information<br/>' +
-            '  <span class="hl">echo</span>       repeat text<br/>' +
-            '  <span class="hl">clear</span>      clear the terminal'
-          );
-        } else if (c === 'info') {
-          typeEl.innerHTML = infoContent;
-        } else if (c === 'social') {
-          printLine(
-            "<a href='https://instagram.com/samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(instagram)</span><br/>" +
-            "<a href='https://instagram.com/sam.sesh' target='_blank' rel='noopener noreferrer'>sam.sesh</a> <span class='dim'>(instagram)</span><br/>" +
-            "<a href='https://youtube.com/@samseshtech' target='_blank' rel='noopener noreferrer'>samseshtech</a> <span class='dim'>(youtube)</span><br/>" +
-            "<a href='https://twitter.com/_samsesh' target='_blank' rel='noopener noreferrer'>_samsesh</a> <span class='dim'>(twitter)</span><br/>" +
-            "<a href='https://t.me/sam_sesh' target='_blank' rel='noopener noreferrer'>sam_sesh</a> <span class='dim'>(telegram)</span><br/>" +
-            "<a href='https://t.me/SamSeshTech' target='_blank' rel='noopener noreferrer'>SamSeshTech</a> <span class='dim'>(telegram)</span><br/>" +
-            "<a href='https://linkedin.com/in/sam-sesh' target='_blank' rel='noopener noreferrer'>sam-sesh</a> <span class='dim'>(linkedin)</span><br/>" +
-            "<a href='https://github.com/samsesh' target='_blank' rel='noopener noreferrer'>samsesh</a> <span class='dim'>(github)</span>"
-          );
-        } else if (c === 'contact') {
-          printLine(
-            "<a href='mailto:admin@samsesh.net'>admin@samsesh.net</a><br/>" +
-            '+1 (260) 306-5413'
-          );
-        } else if (c === 'donate') {
-          printLine(
-            '<span class="hl">=== DONATION OPTIONS ===</span><br/>' +
-            "<a href='https://donate.samsesh.net' target='_blank' rel='noopener noreferrer'>donate.samsesh.net</a> <span class='dim'>(donation page)</span><br/>" +
-            "<a href='https://paypal.me/samsesh' target='_blank' rel='noopener noreferrer'>paypal.me/samsesh</a> <span class='dim'>(paypal)</span><br/>" +
-            "<a href='https://nowpayments.io/donation/samsesh' target='_blank' rel='noopener noreferrer'>nowpayments.io/donation/samsesh</a> <span class='dim'>(crypto)</span><br/>" +
-            "<a href='https://www.patreon.com/SamSesh' target='_blank' rel='noopener noreferrer'>patreon.com/SamSesh</a> <span class='dim'>(patreon)</span><br/>" +
-            '<span class="dim">opening donate.samsesh.net...</span>'
-          );
-          window.open('https://donate.samsesh.net', '_blank', 'noopener');
-        } else if (c === 'telegram') {
-          window.open('https://t.me/sam_sesh', '_blank', 'noopener');
-          printLine('opening Telegram...');
-        } else if (c === 'whoami') {
-          printLine('samsesh');
-        } else if (c === 'date') {
-          printLine(new Date().toString());
-        } else if (c === 'uptime') {
-          printLine(' 12:34:56 up 127 days,  0:01,  1 user,  load average: 0.00, 0.01, 0.05');
-        } else if (c === 'uname') {
-          var ua = args.join(' ');
-          if (ua === '-a') {
-            printLine('Linux 127.0.0.1 5.15.0-generic #1 SMP Ubuntu 22.04 LTS x86_64 GNU/Linux');
-          } else {
-            printLine('Linux');
-          }
-        } else if (c === 'echo') {
-          printLine(args.join(' '));
-        } else if (c === 'clear') {
-          var all = document.querySelectorAll('.console .command, .console .output');
-          for (var i = 0; i < all.length; i++) {
-            all[i].remove();
-          }
-        } else {
-          printLine(
-            "bash: " + cmd + ": command not found"
-          );
-        }
-        window.scrollTo(0, document.body.scrollHeight);
+      return;
+    default:
+      if(e.key.length===1){
+        e.preventDefault();
+        typeChar(e.key);
+        keyClick(); pokeCursor();
       }
+  }
+}
+hid.addEventListener('keydown', onKey);
+document.addEventListener('keydown', e=>{
+  if(document.activeElement===hid) return;
+  onKey(e);
+});
+/* mobile keyboards that bypass keydown (GBoard etc.) land here */
+hid.addEventListener('input', ()=>{
+  let v=hid.value;
+  if(v.includes('\n')){
+    v=v.replace(/\n/g,'');
+    lineText=v; caret=v.length; syncHid();
+    thunk(); submit(); return;
+  }
+  lineText=v;
+  caret=Math.min(hid.selectionStart??v.length, v.length);
+  render(); pokeCursor();
+});
+/* tap anywhere → the keyboard appears (focus inside a user gesture) */
+ $('#term').addEventListener('pointerup', ()=>{
+  if(window.getSelection().isCollapsed) hid.focus({preventScroll:true});
+});
+if(TOUCH){
+  $('#term').addEventListener('touchend', e=>{
+    if(window.getSelection().isCollapsed){
+      e.preventDefault();          /* stop the double-tap zoom stealing it */
+      hid.focus({preventScroll:true});
+    }
+  }, {passive:false});
+}
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Shift' || e.key === 'Control' || e.key === 'Alt' ||
-            e.key === 'Meta' || e.key === 'CapsLock' || e.key === 'Tab' ||
-            e.key === 'Escape') {
-          return;
-        }
+/* click-to-run on ls entries and the welcome tip */
+scrollEl.addEventListener('click', e=>{
+  const t=e.target.closest('[data-cmd]');
+  if(!t || busy || !window.getSelection().isCollapsed) return;
+  echoCmd(t.dataset.cmd); thunk(); execute(t.dataset.cmd);
+});
 
-        if (e.key === 'Enter') {
-          echoAndExecute(inputDisplay.textContent);
-          return;
-        }
+/* ── tokenize / dispatch ─────────────────────────────────────────────── */
+function tokenize(s){
+  const outT=[]; let cur='', q=null, has=false;
+  for(const ch of s){
+    if(q){ if(ch===q) q=null; else cur+=ch; }
+    else if(ch==='"'||ch==="'"){ q=ch; has=true; }
+    else if(ch===' '||ch==='\t'){ if(cur||has){ outT.push(cur); cur=''; has=false; } }
+    else cur+=ch;
+  }
+  if(cur||has) outT.push(cur);
+  return outT;
+}
+function lev(a,b){
+  if(Math.abs(a.length-b.length)>2) return 9;
+  const dp=Array.from({length:a.length+1},(_,i)=>{ const r=new Array(b.length+1).fill(0); r[0]=i; return r; });
+  for(let j=0;j<=b.length;j++) dp[0][j]=j;
+  for(let i=1;i<=a.length;i++) for(let j=1;j<=b.length;j++)
+    dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return dp[a.length][b.length];
+}
+function suggest(w){
+  let best=null, bd=3;
+  for(const c of Object.keys(COMMANDS)){ const d=lev(w,c); if(d<bd){ bd=d; best=c; } }
+  return best;
+}
+function execute(text){
+  if(busy) return;
+  if(text.includes('&&')){ text.split('&&').forEach(t=>{ if(t.trim()) execute(t.trim()); }); return; }
+  const tokens=tokenize(text);
+  if(!tokens.length) return;
+  const cmd=tokens[0].toLowerCase(), args=tokens.slice(1);
+  const rawRest=text.slice(text.indexOf(tokens[0])+tokens[0].length).replace(/^\s+/,'');
+  const fn=COMMANDS[cmd];
+  if(!fn){
+    line(`bash: ${esc(tokens[0])}: command not found`,'err');
+    const s=suggest(cmd);
+    if(s) line(`did you mean '<span data-cmd="${s}">${s}</span>'? shells can't apologize, but they can guess`,'dim');
+    return;
+  }
+  fn(args, rawRest);
+}
+function submit(){
+  const text=lineText;
+  echoCmd(text);
+  lineText=''; caret=0; syncHid(); render();
+  if(MODE){
+    if(MODE.type==='mail') mailEnter(text);
+    else loginEnter(text);
+    return;
+  }
+  if(!text.trim()) return;
+  if(HIST[HIST.length-1]!==text){
+    HIST.push(text); if(HIST.length>200) HIST.shift();
+    store.set('hist',HIST);
+  }
+  hIdx=null;
+  execute(text);
+}
 
-        if (e.key === 'Backspace') {
-          commandBuffer = commandBuffer.slice(0, -1);
-          inputDisplay.textContent = commandBuffer;
-          e.preventDefault();
-          return;
-        }
+/* ── login — name only, no password. we trust you. ──────────────────── */
+function startLogin(){
+  MODE={type:'login', name:'', label:'samsesh login: '};
+  setPrompt();
+}
+function loginEnter(text){
+  MODE.name=(text.trim().toLowerCase().replace(/[^a-z0-9._-]/g,'').slice(0,16))||'guest';
+  completeLogin();
+}
+function completeLogin(){
+  const prev=store.get('lastLogin',null);
+  store.set('lastLogin',new Date().toISOString());
+  USER=MODE.name; MODE=null;
+  setPrompt();
+  if(prev){
+    const d=new Date(prev), p2=n=>String(n).padStart(2,'0');
+    line(`Last login: ${DAYS[d.getDay()]} ${MONS[d.getMonth()]} ${String(d.getDate()).padStart(2)} `+
+         `${p2(d.getHours())}:${p2(d.getMinutes())}:${p2(d.getSeconds())} ${d.getFullYear()} from ${PREV_IP||'parts unknown'}`,'dim');
+  }
+  printBanner();
+  /* the tip — first command, guaranteed */
+  line(`type '<span data-cmd="cat info.txt" class="bright">cat info.txt</span>' — that's me, in one file`);
+  if(!store.get('seen',false)){
+    line("(or just 'info' — it's aliased to the same thing)",'dim');
+    line("'help' exists if you like manuals",'dim');
+    if(TOUCH) line('tip: tap anywhere to summon the keyboard','dim');
+    store.set('seen',true);
+  }
+}
+function endSession(){
+  line('logout');
+  line('');
+  cwd=[]; prevCwd=null; lineText=''; caret=0; MODE=null;
+  startLogin();
+  syncHid(); render();
+}
 
-        if (e.key.length === 1) {
-          commandBuffer += e.key;
-          inputDisplay.textContent = commandBuffer;
-          e.preventDefault();
-        }
+/* ── command implementations ─────────────────────────────────────────── */
+const fmtK = n => n<1024 ? n+'B' : (n/1024).toFixed(1)+'K';
+const sect = t => line('── '+t+' '+'─'.repeat(Math.max(2, 36-t.length)), 'dim');
+function lsDate(ds){
+  if(!ds){
+    const n=new Date(), p2=n=>String(n).padStart(2,'0');
+    return `${MONS[n.getMonth()]} ${String(n.getDate()).padStart(2)} ${p2(n.getHours())}:${p2(n.getMinutes())}`;
+  }
+  const [y,m,d]=ds.split('-').map(Number);
+  const now=new Date();
+  const pad=String(d).padStart(2,' ');
+  return y===now.getFullYear() ? `${MONS[m-1]} ${pad} 09:41` : `${MONS[m-1]} ${pad}  ${y}`;
+}
+
+/* ~/info.txt — generated from the three arrays. the whole site, one file. */
+function infoTxtSize(){
+  let n=140;
+  for(const s of SOCIALS) n+=s.label.length+s.url.length+s.net.length+6;
+  for(const d of DONATE)  n+=d.label.length+d.url.length+d.net.length+6;
+  return n+CONTACT.email.length+CONTACT.phone.length+30;
+}
+function printInfoTxt(){
+  line('── sam sesh '+'─'.repeat(Math.max(2,Math.min(COLS,64)-11)),'dim');
+  line('DevSecOps & Cybersecurity Researcher');
+  line("127.0.0.1 — there's no place like home",'dim');
+  line('');
+  sect('socials');
+  for(const s of SOCIALS)
+    line(`  ${String(s.net).padEnd(18)}<a href="${s.url}" target="_blank" rel="noopener">${esc(s.label)}</a>`);
+  line('');
+  sect('contact');
+  line(`  email     <a href="mailto:${CONTACT.email}">${CONTACT.email}</a>`);
+  line(`  phone     <a href="tel:${CONTACT.phoneHref}">${esc(CONTACT.phone)}</a>`);
+  line(`  or compose right here: <span data-cmd="mail ${CONTACT.email}">mail ${CONTACT.email}</span>`,'dim');
+  line('');
+  sect('donate — the coffee fund');
+  for(const d of DONATE)
+    line(`  ${String(d.net).padEnd(18)}<a href="${d.url}" target="_blank" rel="noopener">${esc(d.label)}</a>`);
+  line('');
+  line('~/info.txt · no tracking, no cookies, no dark patterns','dim');
+}
+function socialBlock(){
+  sect('socials');
+  for(const s of SOCIALS)
+    line(`  <a href="${s.url}" target="_blank" rel="noopener">${esc(s.label)}</a> <span class="dim">(${esc(s.net)})</span>`);
+}
+function contactBlock(){
+  sect('contact');
+  line(`  <a href="mailto:${CONTACT.email}">${CONTACT.email}</a> <span class="dim">(email)</span>`);
+  line(`  <a href="tel:${CONTACT.phoneHref}">${esc(CONTACT.phone)}</a> <span class="dim">(phone)</span>`);
+  line(`  compose right here: <span data-cmd="mail ${CONTACT.email}">mail ${CONTACT.email}</span>`,'dim');
+}
+function donateBlock(openIt){
+  sect('donate — the coffee fund');
+  for(const d of DONATE)
+    line(`  <a href="${d.url}" target="_blank" rel="noopener">${esc(d.label)}</a> <span class="dim">(${esc(d.net)})</span>`);
+  if(openIt){
+    line('  opening donate.samsesh.net …','dim');
+    window.open('https://donate.samsesh.net','_blank','noopener');
+  }
+}
+
+function entryHTML(segs,name,node){
+  const dir = pathStr(segs)==='~' ? '~' : pathStr(segs);
+  const full = `${dir}/${name}`;
+  if(isDirNode(node)) return `<span class="d" data-cmd="cd ${full}">${esc(name)}/</span>`;
+  return `<span data-cmd="cat ${full}">${esc(name)}</span>`;
+}
+function docSize(nd){
+  if(nd.kind==='post') return nd.post.md.length;
+  if(nd.doc==='file:info.txt') return infoTxtSize();
+  return (DOCS[nd.doc]?.text||'').length||0;
+}
+function cmdLs(args){
+  const flags=(args.filter(a=>a.startsWith('-')).join(''))||'';
+  const target=args.find(a=>!a.startsWith('-'))||'.';
+  const r=resolvePath(target), node=nodeAt(r.segs);
+  if(!node){ line(`ls: cannot access '${esc(target)}': No such file or directory`,'err'); return; }
+  if(!(node.kind==='dir'||node.kind==='home'||node.kind==='projdir')){
+    line(entryHTML(r.segs, r.segs[r.segs.length-1], node)); return;
+  }
+  const entries=dirEntries(r.segs);
+  let names=[...entries.keys()];
+  if(!flags.includes('a')) names=names.filter(n=>!n.startsWith('.'));
+  names.sort((a,b)=>{
+    const da=isDirNode(entries.get(a)), db=isDirNode(entries.get(b));
+    return da!==db ? (da?-1:1) : a.localeCompare(b);
+  });
+  if(!names.length){ line(''); return; }
+  if(flags.includes('l')){
+    let total=0;
+    for(const n of names){
+      const nd=entries.get(n), d=isDirNode(nd);
+      const size=d?4096:docSize(nd);
+      total+=Math.max(1,Math.ceil(size/1024));
+    }
+    line(`total ${total}`);
+    for(const n of names){
+      const nd=entries.get(n), d=isDirNode(nd);
+      const perm=d?'drwxr-xr-x':'-rw-r--r--';
+      const size=d?4096:docSize(nd);
+      const date=d?lsDate(''):lsDate(nd.kind==='post'?nd.post.date:undefined);
+      line(`<span class="dim">${perm}</span>  1 ${USER} ${USER} ${String(size).padStart(6)} ${date}  ${entryHTML(r.segs,n,nd)}`);
+    }
+    return;
+  }
+  const wmax=Math.max(...names.map(n=>n.length+(isDirNode(entries.get(n))?1:0)));
+  let ncols=Math.floor(((scrollEl.clientWidth||600)-28)/(CH*(wmax+2)));
+  ncols=Math.min(Math.max(ncols,1),8);
+  for(let i=0;i<names.length;i+=ncols){
+    const row=names.slice(i,i+ncols).map(n=>{
+      const nd=entries.get(n);
+      return entryHTML(r.segs,n,nd)+' '.repeat(wmax+2-(n.length+(isDirNode(nd)?1:0)));
+    }).join('');
+    line(row);
+  }
+}
+function cmdCd(args){
+  const a=args[0]||'~';
+  if(a==='-'){
+    if(!prevCwd){ line('bash: cd: OLDPWD not set','err'); return; }
+    const t=prevCwd; prevCwd=cwd; cwd=t; setPrompt(); line(pathStr(cwd)); return;
+  }
+  let r=resolvePath(a), node=nodeAt(r.segs);
+  if(!node && !a.includes('/') && TAGS().includes(a)){
+    r={segs:['tags',a]}; node={kind:'dir'};
+  }
+  if(node && (node.kind==='dir'||node.kind==='home'||node.kind==='projdir')){
+    prevCwd=cwd; cwd=r.segs; setPrompt(); return;
+  }
+  if(node){ line(`bash: cd: ${esc(a)}: Not a directory`,'err'); return; }
+  line(`bash: cd: ${esc(a)}: No such file or directory`,'err');
+}
+function printDoc(id){
+  if(id==='file:info.txt'){ printInfoTxt(); return; }
+  const d=DOCS[id]; if(!d) return;
+  if(id==='file:.zshrc'||id==='file:.plan'){
+    line(`── ${esc(id.slice(5))} `+'─'.repeat(24),'dim');
+    line(`<pre class="code">${esc(d.text)}</pre>`);
+  } else {
+    line(renderMD(d.text),'md');
+  }
+}
+function cmdCat(args){
+  if(!args.length){ line('cat: missing operand — try `cat info.txt`','err'); return; }
+  for(const a of args){
+    const r=resolvePath(a), node=nodeAt(r.segs);
+    if(!node){
+      line(`cat: ${esc(a)}: No such file or directory`,'err');
+      continue;
+    }
+    if(node.kind==='dir'||node.kind==='home'||node.kind==='projdir'){
+      line(`cat: ${esc(a)}: Is a directory`,'err'); continue;
+    }
+    if(node.kind==='post') line(renderMD(node.post.md),'md');
+    else if(node.kind==='doc') printDoc(node.doc);
+    else if(node.kind==='project') line(renderMD(`# ${node.proj.name}`),'md');
+  }
+}
+function cmdOpen(args){
+  if(!PROJECTS.length){
+    line('open: no projects yet — this is a business card, not a portfolio','dim');
+    return;
+  }
+  if(!args.length){
+    line('open: which one? try: '+PROJECTS.map(p=>`<span data-cmd="open ${p.name}" class="dim">${p.name}</span>`).join('  '));
+    return;
+  }
+  const p=PROJECTS.find(p=>p.name===args[0].toLowerCase());
+  if(!p){ line(`open: unknown project '${esc(args[0])}' — 'ls projects' to see them`,'err'); return; }
+  line(`open: ${esc(p.name)} → ${esc(p.url)}`,'dim');
+  window.open(p.url,'_blank','noopener');
+}
+function cmdGrep(args){
+  const q=(args[0]||'').toLowerCase();
+  if(!q){ line('grep: usage: grep <pattern> — searches every post like a busybody','err'); return; }
+  if(!POSTS.length){ line(`grep: nothing to search — 0 posts (someday, maybe)`,'dim'); return; }
+  let total=0;
+  const mark=ln=>{
+    const i=ln.toLowerCase().indexOf(q);
+    return i<0 ? esc(ln)
+      : esc(ln.slice(0,i))+`<span class="ic">${esc(ln.slice(i,i+q.length))}</span>`+esc(ln.slice(i+q.length));
+  };
+  for(const p of POSTS){
+    p.md.split('\n').forEach((ln,n)=>{
+      if(ln.toLowerCase().includes(q) && total<12){
+        total++;
+        line(`<span class="dim">~/posts/${p.file}</span><span class="dim">:${n+1}:</span> ${mark(ln.trim())}`);
+      }
+    });
+  }
+  line(total
+    ? `— ${total} match${total>1?'es':''} · open one with cat`
+    : `grep: no matches. rare taste, or a typo. (searched ${POSTS.length} posts)`,'dim');
+}
+
+/* ── curl — the one honest packet in this whole fake terminal ────────── */
+async function httpGet(url, ms=6500){
+  const opt={};
+  try{
+    if(typeof AbortSignal!=='undefined' && typeof AbortSignal.timeout==='function')
+      opt.signal=AbortSignal.timeout(ms);
+  }catch(e){}
+  const r=await fetch(url,opt);
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  return await r.text();
+}
+async function cmdCurl(args){
+  if(args.includes('--help')||args.includes('-h')){
+    line('mini-curl — browser-grown, CORS-fed','dim');
+    line('  curl                    your ip + info, live from ifconfig.co');
+    line('  curl ifconfig.co        just the ip (the authentic one-liner)');
+    line('  curl ifconfig.co/json   the raw json');
+    line('  curl ifconfig.co/all    the info card');
+    line('  curl -I <url>           response headers (CORS-friendly hosts)');
+    line('  curl <url>              dump the body — first 2 KB');
+    return;
+  }
+  const flags=args.filter(a=>a.startsWith('-')).join('').toLowerCase();
+  const urls =args.filter(a=>!a.startsWith('-'));
+  const target=(urls[0]||'').replace(/^["']|["']$/g,'').replace(/\/+$/,'');
+  if(!target){
+    line("curl: no URL given — defaulting to ifconfig.co, house rules",'dim');
+    await showIPInfo('all');
+    return;
+  }
+  const bareHost=target.replace(/^https?:\/\//i,'');
+  if(/^(www\.)?ifconfig\.(co|me)(\/(json|all|ip)?)?$/i.test(bareHost)){
+    const path=bareHost.replace(/^(www\.)?ifconfig\.(co|me)/i,'');
+    if(/json/i.test(path)){ await showIPInfo('json'); return; }
+    if(/all/i.test(path)){ await showIPInfo('all'); return; }
+    await showIPInfo('plain');
+    return;
+  }
+  const url=/^https?:\/\//i.test(target)?target:'https://'+target;
+  if(flags.includes('i')){
+    try{
+      const r=await fetch(url,{method:'HEAD'});
+      line(`HTTP/2 ${r.status}`);
+      ['content-type','server','content-length','date'].forEach(k=>{
+        const v=r.headers.get(k); if(v) line(`${k}: ${esc(v)}`,'dim');
       });
-    </script>
-  </main>
+    }catch(e){
+      line(`curl: (7) couldn't connect to ${esc(bareHost)} — CORS walls, most likely`,'err');
+    }
+    return;
+  }
+  try{
+    const t=await httpGet(url);
+    if(t.length>2000){
+      line(esc(t.slice(0,2000)));
+      line(`… ${t.length-2000} more bytes truncated (this curl is on a diet)`,'dim');
+    } else {
+      line(t?esc(t):'(empty response)');
+    }
+  }catch(e){
+    line(`curl: (7) couldn't connect to ${esc(bareHost)} — CORS walls, most likely. this curl reaches CORS-friendly endpoints only.`,'err');
+  }
+}
+async function showIPInfo(mode){
+  let cline=null, iv=null, dots=0;
+  if(mode!=='plain'){
+    cline=line('connecting to ifconfig.co','dim');
+    if(!RM) iv=setInterval(()=>{ cline.textContent='connecting to ifconfig.co'+'.'.repeat(dots=(dots+1)%4); },260);
+  }
+  const stop=(word)=>{ if(iv) clearInterval(iv); if(cline) cline.textContent='connecting to ifconfig.co — '+word; };
+
+  let info=null, source='ifconfig.co';
+  try{
+    const d=JSON.parse(await httpGet('https://ifconfig.co/json'));
+    info={
+      ip:d.ip, hostname:d.hostname||null,
+      city:d.city||null, region:d.region||null,
+      country:d.country_name||d.country||null,
+      org:d.org||(d.asn&&d.asn.name?('AS'+d.asn.asn+' '+d.asn.name):null),
+      timezone:d.timezone||null, obj:d
+    };
+  }catch(e){}
+  if(!info){
+    source='ipwho.is (backup)';
+    try{
+      const d=JSON.parse(await httpGet('https://ipwho.is/'));
+      if(d && d.ip){
+        info={
+          ip:d.ip, hostname:null,
+          city:d.city||null, region:d.region||null, country:d.country||null,
+          org:(d.connection&&d.connection.org)?('AS'+(d.connection.asn||'?')+' '+d.connection.org):null,
+          timezone:(d.timezone&&d.timezone.id)||null, obj:d
+        };
+      }
+    }catch(e){}
+  }
+  if(!info){
+    try{
+      const d=JSON.parse(await httpGet('https://api.ipify.org?format=json'));
+      stop('answered');
+      line(esc(d.ip));
+      line('(geo lookup failed — but your ip is your ip)','dim');
+    }catch(e){
+      stop('failed');
+      line("curl: (7) couldn't reach ifconfig.co — either it's down, or you're impressively offline",'err');
+    }
+    return;
+  }
+  stop('answered');
+  if(mode==='plain'){ line(esc(info.ip)); return; }
+  if(mode==='json'){
+    line(esc(JSON.stringify(info.obj,null,2)));
+    line('(piped through a very small jq)','dim');
+    return;
+  }
+  const kv=(k,v,note)=>{
+    const s=(v==null||v==='')?'—':String(v);
+    line(`  <span class="dim">${k.padEnd(10)}</span>${esc(s)}${note?`  <span class="dim">${note}</span>`:''}`);
+  };
+  sect('ifconfig.co — who is asking');
+  kv('user ip', info.ip, '← that would be you');
+  kv('hostname', info.hostname);
+  kv('city', info.city);
+  kv('region', info.region);
+  kv('country', info.country);
+  kv('org', info.org);
+  kv('timezone', info.timezone);
+  line('  <span class="dim">source: '+source+' · live lookup · nothing stored on this end</span>');
+}
+
+/* ── mailx-style composer ────────────────────────────────────────────── */
+function startComposer(addr){
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)){
+    line(`mail: '${esc(addr)}' doesn't look deliverable — aspirational, maybe`,'err'); return;
+  }
+  MODE={type:'mail', to:addr, step:'subject', subject:'', body:[], label:'Subject: '};
+  line(`mail — composing to ${esc(addr)}  (Ctrl+C to bail)`,'dim');
+  setPrompt();
+}
+function mailEnter(text){
+  if(MODE.step==='subject'){
+    MODE.subject=text||'(no subject)';
+    MODE.step='body'; MODE.label='';
+    line(`(body — finish with a single '.' on its own line, like it's 1987)`,'dim');
+    setPrompt();
+    return;
+  }
+  if(text.trim()==='.'){ finishMail(); return; }
+  MODE.body.push(text);
+}
+function finishMail(){
+  const m=MODE; MODE=null; setPrompt();
+  const body=m.body.join('\n');
+  const url=`mailto:${m.to}?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(body)}`;
+  line('');
+  line('── draft ──────────────────────','dim');
+  line(`to:      ${esc(m.to)}`);
+  line(`subject: ${esc(m.subject)}`);
+  line(`body:    ${m.body.length} line${m.body.length===1?'':'s'}`);
+  line('───────────────────────────────','dim');
+  try{ navigator.clipboard && navigator.clipboard.writeText(`${m.to}\nSubject: ${m.subject}\n\n${body}`); }catch(e){}
+  line('>> handed off to your mail client — a copy is on your clipboard, just in case','dim');
+  setTimeout(()=>{ window.location.href=url; },350);
+}
+
+/* ── man page scroll, banner, neofetch ───────────────────────────────── */
+function setBusy(b){ busy=b; promptline.classList.toggle('busy',b); }
+const sleep = ms => new Promise(r=>setTimeout(r, skipFlag||RM?0:ms));
+
+async function manScroll(){
+  if(busy) return;
+  setBusy(true);
+  const ls=DOCS['doc:man'].text.split('\n');
+  for(let i=0;i<ls.length;i++){
+    const cls=(i===0||i===ls.length-1)?'man-t':(/^[A-Z][A-Z ]+$/.test(ls[i])?'man-s':'');
+    line(esc(ls[i]),cls);
+    await sleep(ls[i].trim()===''?46:11);
+  }
+  setBusy(false); skipFlag=false;
+}
+
+/* the banner — your figlet, migrated verbatim from the old source */
+const BANNER=[
+' __         __',
+"(_  _.._ _ (_  _  _|_  ._  __|_",
+"__)(_|| | |__)(/__>| |o| |(/_|",
+];
+function printBanner(){
+  line('');
+  for(const l of BANNER) line(esc(l),'banner');
+  line('samsesh.net — devsecops & cybersecurity research, typed politely','dim');
+  line("no place like home",'dim');
+}
+function rowsCount(){
+  const d=document.createElement('div'); d.className='line'; d.innerHTML='&nbsp;';
+  out.appendChild(d); const h=d.offsetHeight||18; d.remove();
+  return Math.max(10,Math.floor(scrollEl.clientHeight/h));
+}
+function cmdNeofetch(){
+  const logo=[
+    '         _     ',
+    '     ---(_)    ',
+    ' _/  ---  \\    ',
+    '(_) |   |      ',
+    '  \\  --- _/    ',
+    '     ---(_)    ',
+  ];
+  const up=Math.floor((Date.now()-T0)/1000);
+  const upStr=up<60?`${up}s`:`${Math.floor(up/60)}m${up%60}s`;
+  const L=n=>`<span class="dim">${n.padEnd(9)}</span>`;
+  const info=[
+    `<span class="bright">${esc(USER)}</span><span class="dim">@</span><span class="bright">${esc(HOST())}</span>`,
+    `<span class="dim">${'─'.repeat(26)}</span>`,
+    L('os')+`Linux x86_64 (the browser kind)`,
+    L('host')+`${esc(HOST())} (that's you)`,
+    L('kernel')+`6.1.0-samsh`,
+    L('shell')+`bash 5.2 (samsh 1.9 inside)`,
+    L('uptime')+`${upStr} (this login)`,
+    L('content')+`one info.txt, zero posts`,
+    L('term')+`${COLS}x${rowsCount()} · roboto mono`,
+    L('coffee')+`critically low`,
+  ];
+  for(let i=0;i<Math.max(logo.length,info.length);i++)
+    line(`<span class="bright">${esc(logo[i]||' '.repeat(16))+'  '}</span>${info[i]||''}`);
+}
+
+/* ── theme / crt / sound ─────────────────────────────────────────────── */
+const THEMES=['linux','ubuntu','green','amber','mono'];
+function applyTheme(t){
+  curTheme=t; document.documentElement.dataset.theme=t;
+  store.set('theme',t);
+}
+function setCrt(on){
+  if(on && !document.body.classList.contains('crt-on')){
+    document.body.classList.add('crt-on');
+    if(!RM){ screenEl.classList.remove('degauss'); void screenEl.offsetWidth; screenEl.classList.add('degauss'); }
+  } else if(!on) document.body.classList.remove('crt-on');
+  store.set('crt',on);
+}
+function cmdTheme(a){
+  const t=(a[0]||'').toLowerCase();
+  if(!t){ line(`theme: ${curTheme} · available: ${THEMES.join(' · ')}`); return; }
+  if(!THEMES.includes(t)){ line(`theme: unknown '${esc(t)}' — options: ${THEMES.join(', ')}`,'err'); return; }
+  applyTheme(t); line(`theme set: ${t} (stored — I'll remember you)`,'dim');
+}
+function cmdCrt(a){
+  const arg=(a[0]||'').toLowerCase();
+  const on = arg==='on' ? true : arg==='off' ? false : !document.body.classList.contains('crt-on');
+  setCrt(on);
+  line(on ? 'crt: on — scanlines engaged, nostalgia at 11' : 'crt: off — clean signal, no scanlines','dim');
+}
+function cmdSound(a){
+  const arg=(a[0]||'').toLowerCase();
+  sndOn = arg==='on' ? true : arg==='off' ? false : !sndOn;
+  store.set('snd',sndOn);
+  if(sndOn) keyClick();
+  line(sndOn ? 'sound: on — every keypress, subtly (stored)' : 'sound: off — the quiet professional','dim');
+}
+
+/* ── the command table ───────────────────────────────────────────────── */
+const COMMANDS={
+  ls:cmdLs, cd:cmdCd, cat:cmdCat, grep:cmdGrep,
+  curl:a=>cmdCurl(a),
+  info:()=>printInfoTxt(),          /* alias for 'cat ~/info.txt' */
+  whoami:()=>{ line(USER); line("(the human is in ~/info.txt — 'info' cats it)",'dim'); },
+  social:()=>{ socialBlock(); },
+  contact:()=>{ contactBlock(); },
+  donate:()=>{ donateBlock(true); },
+  telegram:()=>{
+    window.open('https://t.me/sam_sesh','_blank','noopener');
+    line("opening telegram → t.me/sam_sesh (channel: SamSeshTech — 'social' has both)",'dim');
+  },
+  mail:a=>startComposer(a[0]||CONTACT.email),
+  open:cmdOpen,
+  help:()=>manScroll(),
+  man:a=>(a[0]&&a[0]!=='samsesh'&&a[0]!=='samsh')
+        ? line(`No manual entry for ${esc(a[0])} (try 'man samsesh')`,'dim')
+        : manScroll(),
+  '?':()=>manScroll(),
+  hostname:()=>{ line(HOST()); line("(that's you, resolved live)",'dim'); },
+  login:()=>{ line(''); startLogin(); },
+  logout:()=>endSession(),
+  exit:()=>endSession(),
+  clear:()=>{ out.innerHTML=''; out.appendChild(promptline); },
+  history:()=>{
+    if(!HIST.length){ line('history: empty — you type nothing, I remember nothing','dim'); return; }
+    HIST.forEach((h,i)=>line(`<span class="dim">${String(i+1).padStart(4)}</span>  ${esc(h)}`));
+  },
+  theme:cmdTheme, crt:cmdCrt, sound:cmdSound,
+  neofetch:cmdNeofetch,
+  banner:()=>printBanner(),
+  echo:(a,raw)=>line(esc(raw)),
+  pwd:()=>line(HOMEABS()+(cwd.length?'/'+cwd.join('/'):'')),
+  date:()=>line(esc(new Date().toString())),
+  uptime:()=>{
+    const up=Math.floor((Date.now()-T0)/60000);
+    const t=new Date().toTimeString().slice(0,8);
+    line(` ${t} up ${up} min,  1 user,  load average: 0.05, 0.03, 0.01`);
+  },
+  uname:a=>line(a.includes('-a')
+    ? `Linux ${HOST()} 6.1.0-samsh #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux`
+    : 'Linux'),
+  id:()=>line(USER==='root'
+    ? 'uid=0(root) gid=0(root) groups=0(root)'
+    : `uid=1000(${USER}) gid=1000(${USER}) groups=1000(${USER}),27(sudo),100(users)`),
+  nmap:()=>{
+    line('Starting Nmap 7.94 ( https://nmap.org )','dim');
+    line(`Nmap scan report for ${HOST()}`);
+    line('Host is up (0.000042s latency).');
+    line('Not shown: 65532 closed tcp ports (conn-refused)');
+    line('PORT      STATE SERVICE');
+    line('443/tcp   open  https — you are here');
+    line('22/tcp    open  ssh   — hi');
+    line("31337/tcp open  elite — that one's on you");
+    line('Nmap done: 1 IP address (1 host up) scanned in 0.07 seconds','dim');
+  },
+  sudo:()=>line(USER==='root'
+    ? "you're already root. that's the whole problem."
+    : `${USER} is not in the sudoers file. This incident will be reported to absolutely no one.`,'err'),
+  rm:a=>line(`rm: cannot remove '${esc(a.join(' ')||'~')}': Read-only file system (nice try though)`,'err'),
+  vim:()=>line("you're already three shells deep. one more and we all fall in.",'dim'),
+  vi:()=>line("you're already three shells deep. one more and we all fall in.",'dim'),
+  emacs:()=>line("emacs: not installed — this tty tops out at 640K. (great editor though. relax.)",'dim'),
+  ':q':()=>line("this isn't vim. I know. disappointing.",'dim'),
+};
+
+/* ── metrics ─────────────────────────────────────────────────────────── */
+function metrics(){
+  const s=document.createElement('span');
+  s.textContent='0'.repeat(20);
+  s.style.cssText='position:absolute;visibility:hidden;white-space:pre';
+  scrollEl.appendChild(s);
+  CH=s.getBoundingClientRect().width/20||7.2;
+  s.remove();
+  COLS=Math.max(24,Math.floor(((scrollEl.clientWidth||600)-28)/CH));
+}
+
+/* ── boot — a fresh tty, asking who's there (from the very top) ──────── */
+function boot(){
+  startLogin();
+  if(!TOUCH) hid.focus({preventScroll:true});
+}
+
+/* ── init ────────────────────────────────────────────────────────────── */
+scrollEl.appendChild(out);
+out.appendChild(promptline);     /* the live prompt, in the flow */
+
+let th=store.get('theme','linux');
+if(!store.get('v13',false)){
+  /* one-time migration to the linux look */
+  if(th==='green') th='linux';
+  store.set('v13',1);
+  store.set('crt',false);
+}
+applyTheme(th);
+setCrt(store.get('crt',false));
+sndOn=!!store.get('snd',false);
+render();
+metrics();
+window.addEventListener('resize',metrics);
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(metrics);
+resolveMyIP();                   /* know who's asking, before they ask */
+boot();
+</script>
 </body>
 </html>
